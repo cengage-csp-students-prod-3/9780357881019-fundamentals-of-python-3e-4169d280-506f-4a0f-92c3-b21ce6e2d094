@@ -1,0 +1,1 @@
+**Task 1**: Add exception handling code to the server logic in **timeclient.py** to catch and recover from this kind of exception. To recover from this exception, simply print the message **Error connecting to the server** and terminate the program.

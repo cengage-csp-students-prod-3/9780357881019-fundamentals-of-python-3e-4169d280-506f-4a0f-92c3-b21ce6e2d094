@@ -1,0 +1,1 @@
+**Task 1**: Write a program in the file **lightyear.py** that expects a number of years as input and calculates and displays the value of the distance traveled in meters. (LO: 2.4)

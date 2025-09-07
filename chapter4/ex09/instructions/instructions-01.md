@@ -1,0 +1,1 @@
+**Task 1**: Write a script named **numberlines.py** that copies the lines of text from the input file to the output file, numbering each line as it goes. The line numbers should be right-justified in four columns.

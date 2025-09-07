@@ -1,0 +1,1 @@
+**Task 1**: Code a new encryption algorithm in the file **encrypt.py** that adds 1 to each character’s numeric ASCII value, convert it to a bit string, and shift the bits of this string one place to the left. A single-space character in the encrypted string separates the resulting bit strings.

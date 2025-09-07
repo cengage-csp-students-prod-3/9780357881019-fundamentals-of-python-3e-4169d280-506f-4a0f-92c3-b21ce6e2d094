@@ -1,0 +1,247 @@
+name: run-checks
+on:
+  workflow_dispatch:
+    inputs:
+      BRANCH:
+        description: "Branch"
+        required: true
+      TEST_BRANCH:
+        description: "Test branch"
+        required: false
+        default: "main"
+      LANGUAGE:
+        description: "Language - cpp, java, python"
+        required: true
+      CHAPTER:
+        description: "Chapter number (chapter1)"
+        required: true
+      EXERCISE:
+        description: "Exercise number (ex01)"
+        required: true
+      TASK:
+        description: "Task number (Task1), default 'ALL'"
+        required: false
+        default: "ALL"
+      RUN_ID:
+        description: "Timestamp of the workflow dispatch event to track runs"
+        required: false
+      UAT:
+        description: "UAT environment (QAI)"
+        required: false
+        default: false
+
+run-name: ${{ github.event.inputs.CHAPTER }}.${{ github.event.inputs.EXERCISE }}.${{ github.event.inputs.TASK }}
+jobs:
+  run-checks:
+    runs-on: ubuntu-latest
+    name: ${{ github.event.inputs.CHAPTER }}.${{ github.event.inputs.EXERCISE }}.${{ github.event.inputs.TASK }}
+    steps:
+      - name: Checkout student's ${{ github.event.inputs.BRANCH }}
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.TEST_FILES_AUTH  }}
+          ref: ${{ github.event.inputs.BRANCH }}
+
+      - name: Update student's branch
+        run: git pull origin ${{ github.event.inputs.BRANCH }}
+
+      - name: Save target directory as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: artifact-${{ github.event.inputs.CHAPTER }}-${{ github.event.inputs.EXERCISE }}
+          path: ${{ github.event.inputs.CHAPTER }}/${{ github.event.inputs.EXERCISE }}/student/
+          retention-days: 1
+
+      - name: Checkout test cases
+        uses: actions/checkout@v4
+        with:
+          repository: cengage-ide-content/9780357881019-fundamentals-of-python-3e-tests
+          token: ${{ secrets.TEST_FILES_AUTH  }}
+          ref: ${{ github.event.inputs.TEST_BRANCH }}
+
+      - name: Download target artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: artifact-${{ github.event.inputs.CHAPTER }}-${{ github.event.inputs.EXERCISE }}
+          path: ${{ github.event.inputs.LANGUAGE }}/${{ github.event.inputs.CHAPTER }}/${{ github.event.inputs.EXERCISE }}
+
+      - name: Extract number of tasks from tasks.py
+        run: |
+          cd ${{ github.event.inputs.LANGUAGE }}/${{ github.event.inputs.CHAPTER }}/${{ github.event.inputs.EXERCISE }}/
+          TASK_NUMBERS=$(grep -oP "suite_name\s*==\s*['\"]Task\K\d+" tasks.py | sort -u)
+          echo "Found tasks: $TASK_NUMBERS"
+          NUM_TASKS=0
+          for TASK_NUM in $TASK_NUMBERS; do
+            echo "Detected Task${TASK_NUM}"
+            NUM_TASKS=$((NUM_TASKS + 1))
+          done
+          echo "Total tasks detected: $NUM_TASKS"
+          echo "NUM_TASKS=$NUM_TASKS" >> $GITHUB_ENV
+
+      - name: Fetch existing chapter score JSON
+        run: |
+          chapter_scores_json=$(curl -s -L \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${{ secrets.TEST_FILES_AUTH }}" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            https://api.github.com/repos/${{ github.repository }}/actions/variables/SCORES_${{ github.event.inputs.CHAPTER }} | jq -r '.value')
+
+          if [ "$chapter_scores_json" = "null" ] || [ -z "$chapter_scores_json" ]; then
+            chapter_scores_json='{}'
+          fi
+
+          echo "Existing chapter scores JSON: $chapter_scores_json"
+          chapter_scores_json=$(echo "$chapter_scores_json" | jq -c .)
+          echo "CHAPTER_SCORES=$chapter_scores_json" >> $GITHUB_ENV
+        shell: bash
+
+      - name: Run and Score Tasks
+        run: |
+          cd ${{ github.event.inputs.LANGUAGE }}/${{ github.event.inputs.CHAPTER }}/${{ github.event.inputs.EXERCISE }}/
+          chapter_scores=$(echo "${CHAPTER_SCORES}" | jq .)
+          total_score=0
+          num_tasks=${NUM_TASKS}
+
+          if [ "${{ github.event.inputs.TASK }}" = "ALL" ]; then
+            # Run all tasks individually and accumulate scores
+            for t in $(seq 1 "$NUM_TASKS"); do
+              echo "Running Task${t}"
+              python3 tasks.py Task${t}
+              task_score=$(<score.txt)
+              echo "Score for Task${t}: $task_score"
+
+              # Update total_score
+              total_score=$(echo "$total_score + $task_score" | bc)
+
+              # Update JSON with this task's score
+              updated_json=$(echo "$chapter_scores" | jq --arg ex "${{ github.event.inputs.EXERCISE }}" --arg task "Task${t}" --arg val "$task_score" '
+                .[$ex] = (.[$ex] // {}) |
+                .[$ex][$task] = ($val|tonumber)
+              ')
+
+              chapter_scores="$updated_json"
+            done
+          else
+            # Run only the specified task
+            current_task_number=$(echo "${{ github.event.inputs.TASK }}" | grep -oP '\d+')
+            echo "Current task number: $current_task_number"
+
+            python3 tasks.py ${{ github.event.inputs.TASK }}
+            current_task_score=$(<score.txt)
+            echo "Score for ${{ github.event.inputs.TASK }}: $current_task_score"
+
+            # Calculate total from existing JSON excluding current task
+            total_score=$(echo "$chapter_scores" | jq --arg ex "${{ github.event.inputs.EXERCISE }}" --arg skip "Task${current_task_number}" '
+              (.[$ex] // {}) | to_entries 
+              | map(select(.key != $skip))
+              | map(.value)
+              | add // 0
+            ')
+
+            # Add current task score
+            total_score=$(echo "$total_score + $current_task_score" | bc)
+
+            # Update JSON with current task's score
+            updated_json=$(echo "$chapter_scores" | jq --arg ex "${{ github.event.inputs.EXERCISE }}" --arg task "${{ github.event.inputs.TASK }}" --arg val "$current_task_score" '
+              .[$ex] = (.[$ex] // {}) |
+              .[$ex][$task] = ($val|tonumber)
+            ')
+            chapter_scores="$updated_json"
+          fi
+
+          # Compute final score after all tasks processed
+          if [ "$num_tasks" -gt 0 ]; then
+            final_score=$(echo "scale=2; $total_score / $num_tasks" | bc)
+          else
+            echo "Error: No tasks found."
+            exit 1
+          fi
+
+          echo "Final Score: $final_score"
+          echo "$final_score" > score.txt
+
+          # Encode chapter_scores as a JSON string for the API
+          escaped_value=$(echo "$chapter_scores" | jq -Rs .)
+
+          # Save updated JSON as a repo variable
+          curl -L \
+            -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${{ secrets.TEST_FILES_AUTH }}" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            https://api.github.com/repos/${{ github.repository }}/actions/variables \
+            -d "{\"name\":\"SCORES_${{ github.event.inputs.CHAPTER }}\",\"value\":$escaped_value}"
+
+          curl -L \
+            -X PATCH \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${{ secrets.TEST_FILES_AUTH }}" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            https://api.github.com/repos/${{ github.repository }}/actions/variables/SCORES_${{ github.event.inputs.CHAPTER }} \
+            -d "{\"name\":\"SCORES_${{ github.event.inputs.CHAPTER }}\",\"value\":$escaped_value}"
+        shell: bash
+
+      - name: Save score.txt contents to a variable
+        run: |
+          cd ${{ github.event.inputs.LANGUAGE }}/${{ github.event.inputs.CHAPTER }}/${{ github.event.inputs.EXERCISE }}/
+          contents=$(<score.txt)
+          echo "$contents"
+          echo "CONTENTS=$(echo $contents)" >> $GITHUB_ENV
+          echo
+
+      - name: Save final exercise score as a repository variable
+        run: |
+          curl -L \
+            -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${{ secrets.TEST_FILES_AUTH }}" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            https://api.github.com/repos/${{github.repository}}/actions/variables \
+            -d '{"name":"SCORE_${{github.event.inputs.CHAPTER}}_${{github.event.inputs.EXERCISE}}","value":"${{ env.CONTENTS }}"}'
+          curl -L \
+            -X PATCH \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${{ secrets.TEST_FILES_AUTH }}" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            https://api.github.com/repos/${{github.repository}}/actions/variables/SCORE_${{github.event.inputs.CHAPTER}}_${{github.event.inputs.EXERCISE}} \
+            -d '{"name":"SCORE_${{github.event.inputs.CHAPTER}}_${{github.event.inputs.EXERCISE}}","value":"${{ env.CONTENTS }}"}'
+
+      - name: Save test results as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: artifact-${{ github.event.inputs.CHAPTER }}-${{ github.event.inputs.EXERCISE }}-results
+          path: |
+            ${{ github.event.inputs.LANGUAGE }}/${{ github.event.inputs.CHAPTER }}/${{ github.event.inputs.EXERCISE }}/*.txt
+          retention-days: 1
+
+      - name: Checkout student's ${{ github.event.inputs.BRANCH }}
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.TEST_FILES_AUTH  }}
+          ref: ${{ github.event.inputs.BRANCH }}
+
+      - name: Download target artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: artifact-${{ github.event.inputs.CHAPTER }}-${{ github.event.inputs.EXERCISE }}-results
+
+      - name: Move files to their correct directory
+        run: |
+          mkdir -p ./${{ github.event.inputs.CHAPTER }}/${{ github.event.inputs.EXERCISE }}/results/ && mv -t ./${{ github.event.inputs.CHAPTER }}/${{ github.event.inputs.EXERCISE }}/results/ ./*.txt
+
+      - name: Commit test results to the student's repo
+        run: |
+          git config user.name "Auto-grader"
+          git config user.email "Auto-grader"
+          git add ./*.txt
+          git diff --staged --quiet && { 
+            echo "No changes to commit. Moving on."
+            exit 0
+          }
+          git commit -m "${{ github.event.inputs.CHAPTER }}/${{ github.event.inputs.EXERCISE }}-test-results"
+
+      - name: Push student changes
+        run: |
+          git fetch
+          git merge origin/${{ github.event.inputs.BRANCH }}
+          git push

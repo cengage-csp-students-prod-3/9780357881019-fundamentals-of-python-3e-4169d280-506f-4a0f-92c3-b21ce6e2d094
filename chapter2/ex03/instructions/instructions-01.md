@@ -1,0 +1,1 @@
+**Task 1**: Write a program in the file **fivestar.py** that the clerks at Five Star Retro Video can use to calculate the total charge for a customer’s video rentals. The program should prompt the user for the number of each type of video and output the total cost. (LO: 2.3, 2.4)

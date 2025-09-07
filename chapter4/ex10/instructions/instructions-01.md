@@ -1,0 +1,1 @@
+**Task 1**: Write a script named **dif.py** that prompts the user for the names of two text files and compare the contents of the two files to see if they are the same. If they are, the script should simply output "**Yes**". If they are not, the script should output "**No**", followed by the first lines of each file that differ from each other.

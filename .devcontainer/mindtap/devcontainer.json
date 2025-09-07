@@ -1,0 +1,48 @@
+{
+  "name": "MindTap",
+  "image": "mcr.microsoft.com/devcontainers/universal:3-noble",
+  "features": {
+    "ghcr.io/devcontainers/features/desktop-lite:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "cengage.cengage-companion",
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-python.black-formatter",
+        "ms-vsliveshare.vsliveshare",
+        "ms-python.pylint"
+      ],
+      "settings": {
+        "extensions.ignoreRecommendations": true,
+        "git.openRepositoryInParentFolders": "never",
+        "workbench.colorTheme": "Default Dark Modern",
+        "python.languageServer": "Pylance",
+        "python.analysis.typeCheckingMode": "standard",
+        "editor.formatOnSave": false,
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "pylint.enabled": false, 
+        "pylint.args": [
+        	"--disable=C0103",
+    		  "--disable=C0116",
+    		  "--disable=C0304"
+  	    ]
+      }
+    }
+  },
+  "forwardPorts": [
+    3005,
+    6080
+  ],
+  "portsAttributes": {
+    "3005": {
+      "label": "cengage-companion",
+      "onAutoForward": "silent"
+    },
+    "6080": {
+      "label": "desktop"
+    }
+  },
+  "postCreateCommand": "pip install matplotlib pandas pylint black"
+}

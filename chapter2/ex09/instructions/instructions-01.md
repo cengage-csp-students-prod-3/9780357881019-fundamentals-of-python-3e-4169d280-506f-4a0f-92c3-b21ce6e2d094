@@ -1,0 +1,1 @@
+**Task 1**: Write a program in the file **klickstonauts.py** that takes as input a number of kilometers and prints the corresponding number of nautical miles.

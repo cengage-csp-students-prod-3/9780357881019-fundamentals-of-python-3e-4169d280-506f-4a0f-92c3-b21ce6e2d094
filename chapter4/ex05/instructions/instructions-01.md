@@ -1,0 +1,1 @@
+**Task 1**: Define two scripts, **shiftleft.py** and **shiftright.py**, that expect a bit string as an input. The script `shiftLeft` shifts the bits in its input one place to the left, wrapping the leftmost bit to the rightmost position. The script `shiftRight` performs the inverse operation. Each script prints the resulting string. (LO: 4.1, 4.4)

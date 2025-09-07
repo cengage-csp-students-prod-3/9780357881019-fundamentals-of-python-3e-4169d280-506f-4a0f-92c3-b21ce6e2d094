@@ -1,0 +1,39 @@
+name: submit-score
+run-name: Submit
+# trigger the workflow manually
+on:
+  workflow_dispatch:
+    inputs:
+      CHAPTER:
+        description: "Chapter number (chapter1)"
+        required: true
+      EXERCISE:
+        description: "Exercise number (ex01)"
+        required: true
+      RUN_ID:
+        description: "Timestamp of the workflow dispatch event to track runs"
+        required: true
+
+jobs:
+  run_id:
+    runs-on: ubuntu-latest
+    steps:
+      - name: ${{ inputs.RUN_ID }}
+        run: echo run id ${{ inputs.RUN_ID }}
+
+  send_payload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Sending JSON payload to the LTI Middleware
+        env:
+          SCORE_VARS_KEY: SCORE_${{ github.event.inputs.CHAPTER }}_${{ github.event.inputs.EXERCISE }}
+          STATE_VARS_KEY: STATE_${{ github.event.inputs.CHAPTER }}_${{ github.event.inputs.EXERCISE }}
+        run: |
+          commit_hash=$(git rev-parse HEAD) # Get the latest commit hash
+          curl -X POST -H "Content-Type: application/json" \
+                -H "Authorization: Bearer ${{ secrets.SCORES_API_AUTH }}" \
+                -d '{"Score": "${{ vars[env.SCORE_VARS_KEY] }}", "State": "${{ vars[env.STATE_VARS_KEY] }}", "SHA": "'${commit_hash}'"}' \
+                ${{ vars.SCOREURL }}
