@@ -1,0 +1,18 @@
+
+Status: PASSED!
+Check: 1
+Test: Program outputs 30.0 when user inputs 10 and 6
+Reason: 30 was found in the program's output.None
+Timestamp: 2025-09-08 17:35:33.335714
+
+Status: PASSED!
+Check: 2
+Test: Program outputs 0.25 when user inputs .5 and 1
+Reason: 0.25 was found in the program's output.None
+Timestamp: 2025-09-08 17:35:33.353462
+
+Status: PASSED!
+Check: 3
+Test: Program outputs 280.5 when user inputs 17 and 33
+Reason: 280.5 was found in the program's output.None
+Timestamp: 2025-09-08 17:35:33.371415
