@@ -1,0 +1,18 @@
+
+Status: PASSED!
+Check: 1
+Test: Program outputs '36.0 cubic units' when user inputs 3, 6, and 2
+Reason: '36.0 cubic units' was found in the program's output.None
+Timestamp: 2025-09-08 17:55:26.974921
+
+Status: PASSED!
+Check: 2
+Test: Program outputs '2.0 cubic units' when user inputs 2, 2, and 0.5
+Reason: '2.0 cubic units' was found in the program's output.None
+Timestamp: 2025-09-08 17:55:26.991847
+
+Status: PASSED!
+Check: 3
+Test: Program outputs '4080.0 cubic units' when user inputs 17, 400, 0.6
+Reason: '4080.0 cubic units' was found in the program's output.None
+Timestamp: 2025-09-08 17:55:27.008618
