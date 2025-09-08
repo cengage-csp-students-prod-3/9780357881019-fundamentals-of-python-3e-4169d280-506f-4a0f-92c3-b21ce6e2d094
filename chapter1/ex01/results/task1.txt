@@ -3,22 +3,22 @@ Status: PASSED!
 Check: 1
 Test: Print your name.
 Reason: A name was found in the program's output.None
-Timestamp: 2025-09-08 16:27:33.911595
+Timestamp: 2025-09-08 16:29:29.508886
 
 Status: PASSED!
 Check: 2
 Test: Print your address.
 Reason: An address was found in the program's output.None
-Timestamp: 2025-09-08 16:27:33.928767
+Timestamp: 2025-09-08 16:29:29.526868
 
 Status: PASSED!
 Check: 3
 Test: Print your phone number.
 Reason: A phone number was found in the program's output.None
-Timestamp: 2025-09-08 16:27:33.946118
+Timestamp: 2025-09-08 16:29:29.545310
 
 Status: PASSED!
 Check: 4
 Test: There are three lines of output
 Reason: Three lines of output were found.None
-Timestamp: 2025-09-08 16:27:33.962845
+Timestamp: 2025-09-08 16:29:29.562854
