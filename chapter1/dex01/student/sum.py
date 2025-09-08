@@ -1,4 +1,5 @@
 # Correct the code below.
-first = input("Enter the first integer: ")
-second = input("Enter the second integer: ")
-print("The sum is", first + second)
+first = float(input("Enter the first integer: "))
+second = float(input("Enter the second integer: "))
+sum = first + second
+print("The sum is", sum)
