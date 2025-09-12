@@ -1,60 +1,18 @@
 
-Status: FAILED!
-Reason: Unable to run cube.py
-Error: Traceback (most recent call last):
-  File "/home/runner/work/9780357881019-fundamentals-of-python-3e-4169d280-506f-4a0f-92c3-b21ce6e2d094/9780357881019-fundamentals-of-python-3e-4169d280-506f-4a0f-92c3-b21ce6e2d094/python/chapter2/ex02/cube.py", line 4, in <module>
-    prints("The surface area is", surfaceArea, "square units.")
-    ^^^^^^
-NameError: name 'prints' is not defined. Did you mean: 'print'?
+Status: PASSED!
+Check: 1
+Test: Outputs '294 square units' when input is 7
+Reason: Output included '294 square units'None
+Timestamp: 2025-09-12 01:02:14.269129
 
-Timestamp: 2025-09-12 01:01:44.691296
+Status: PASSED!
+Check: 2
+Test: Outputs '54 square units' when input is 3
+Reason: Output included '54 square units'None
+Timestamp: 2025-09-12 01:02:14.286384
 
-Status: FAILED!
-Reason: Unable to run cube.py
-Error: Traceback (most recent call last):
-  File "/home/runner/work/9780357881019-fundamentals-of-python-3e-4169d280-506f-4a0f-92c3-b21ce6e2d094/9780357881019-fundamentals-of-python-3e-4169d280-506f-4a0f-92c3-b21ce6e2d094/python/chapter2/ex02/cube.py", line 4, in <module>
-    prints("The surface area is", surfaceArea, "square units.")
-    ^^^^^^
-NameError: name 'prints' is not defined. Did you mean: 'print'?
-
-Timestamp: 2025-09-12 01:01:44.691392
-
-Status: FAILED!
-Reason: Unable to run cube.py
-Error: Traceback (most recent call last):
-  File "/home/runner/work/9780357881019-fundamentals-of-python-3e-4169d280-506f-4a0f-92c3-b21ce6e2d094/9780357881019-fundamentals-of-python-3e-4169d280-506f-4a0f-92c3-b21ce6e2d094/python/chapter2/ex02/cube.py", line 4, in <module>
-    prints("The surface area is", surfaceArea, "square units.")
-    ^^^^^^
-NameError: name 'prints' is not defined. Did you mean: 'print'?
-
-Timestamp: 2025-09-12 01:01:44.788748
-
-Status: FAILED!
-Reason: Unable to run cube.py
-Error: Traceback (most recent call last):
-  File "/home/runner/work/9780357881019-fundamentals-of-python-3e-4169d280-506f-4a0f-92c3-b21ce6e2d094/9780357881019-fundamentals-of-python-3e-4169d280-506f-4a0f-92c3-b21ce6e2d094/python/chapter2/ex02/cube.py", line 4, in <module>
-    prints("The surface area is", surfaceArea, "square units.")
-    ^^^^^^
-NameError: name 'prints' is not defined. Did you mean: 'print'?
-
-Timestamp: 2025-09-12 01:01:44.788805
-
-Status: FAILED!
-Reason: Unable to run cube.py
-Error: Traceback (most recent call last):
-  File "/home/runner/work/9780357881019-fundamentals-of-python-3e-4169d280-506f-4a0f-92c3-b21ce6e2d094/9780357881019-fundamentals-of-python-3e-4169d280-506f-4a0f-92c3-b21ce6e2d094/python/chapter2/ex02/cube.py", line 4, in <module>
-    prints("The surface area is", surfaceArea, "square units.")
-    ^^^^^^
-NameError: name 'prints' is not defined. Did you mean: 'print'?
-
-Timestamp: 2025-09-12 01:01:44.888402
-
-Status: FAILED!
-Reason: Unable to run cube.py
-Error: Traceback (most recent call last):
-  File "/home/runner/work/9780357881019-fundamentals-of-python-3e-4169d280-506f-4a0f-92c3-b21ce6e2d094/9780357881019-fundamentals-of-python-3e-4169d280-506f-4a0f-92c3-b21ce6e2d094/python/chapter2/ex02/cube.py", line 4, in <module>
-    prints("The surface area is", surfaceArea, "square units.")
-    ^^^^^^
-NameError: name 'prints' is not defined. Did you mean: 'print'?
-
-Timestamp: 2025-09-12 01:01:44.888466
+Status: PASSED!
+Check: 3
+Test: Outputs '0 square units' when input is 0
+Reason: Output included '0 square units'None
+Timestamp: 2025-09-12 01:02:14.303136
