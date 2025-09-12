@@ -1,0 +1,36 @@
+
+Status: FAILED!
+Check: 1
+Test: Outputs '$19.0' when input is 3 and 5
+Reason: Unable to find '['$19.0']' in the program's output.
+Enter the number of new videos: Enter the number of oldies: The total cost is $ 19.0
+.
+Error : AssertionError - Unable to find $19.0 in the program's output.
+Timestamp: 2025-09-12 01:14:47.731585
+
+Status: FAILED!
+Check: 2
+Test: Outputs '$3.0' when input is 1 and 0
+Reason: Unable to find '['$3.0']' in the program's output.
+Enter the number of new videos: Enter the number of oldies: The total cost is $ 3.0
+.
+Error : AssertionError - Unable to find $3.0 in the program's output.
+Timestamp: 2025-09-12 01:14:47.748625
+
+Status: FAILED!
+Check: 3
+Test: Outputs '$2.0' when input is 0 and 1
+Reason: Unable to find '['$2.0']' in the program's output.
+Enter the number of new videos: Enter the number of oldies: The total cost is $ 2.0
+.
+Error : AssertionError - Unable to find $2.0 in the program's output.
+Timestamp: 2025-09-12 01:14:47.765397
+
+Status: FAILED!
+Check: 4
+Test: Outputs '$129.0' when input is 13 and 45
+Reason: Unable to find '['$129.0']' in the program's output.
+Enter the number of new videos: Enter the number of oldies: The total cost is $ 129.0
+.
+Error : AssertionError - Unable to find $129.0 in the program's output.
+Timestamp: 2025-09-12 01:14:47.782342
