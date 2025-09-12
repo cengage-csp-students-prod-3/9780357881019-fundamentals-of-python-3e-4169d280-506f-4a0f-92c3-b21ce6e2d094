@@ -1,4 +1,4 @@
 # Write your program here
 cubeEdge = float(input("Enter the cube's edge: "))
 surfaceArea = cubeEdge ** 2 * 6
-prints("The surface area is", surfaceArea, "square units.")
+print("The surface area is", surfaceArea, "square units.")
