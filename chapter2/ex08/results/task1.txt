@@ -1,0 +1,27 @@
+
+Status: FAILED!
+Check: 1
+Test: Outputs 47304000000000000 when input is 5
+Reason: Unable to find '['47304000000000000']' in the program's output.
+Enter the number of years: Light travels 47305000000000000 meters in 5 years.
+.
+Error : AssertionError - Unable to find a number close enough to 47304000000000000 (+/-0.00) in the program's output.
+Timestamp: 2025-09-13 23:41:58.201543
+
+Status: FAILED!
+Check: 2
+Test: Outputs 9460800000000000 when input is 1
+Reason: Unable to find '['9460800000000000']' in the program's output.
+Enter the number of years: Light travels 9461000000000000 meters in 1 years.
+.
+Error : AssertionError - Unable to find a number close enough to 9460800000000000 (+/-0.00) in the program's output.
+Timestamp: 2025-09-13 23:41:58.218038
+
+Status: FAILED!
+Check: 3
+Test: Outputs 293284800000000000 when input is 31
+Reason: Unable to find '['293284800000000000']' in the program's output.
+Enter the number of years: Light travels 293291000000000000 meters in 31 years.
+.
+Error : AssertionError - Unable to find a number close enough to 293284800000000000 (+/-0.00) in the program's output.
+Timestamp: 2025-09-13 23:41:58.234838
