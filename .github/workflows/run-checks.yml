@@ -253,3 +253,4 @@ jobs:
           git fetch
           git merge origin/${{ github.event.inputs.BRANCH }}
           git push
+
