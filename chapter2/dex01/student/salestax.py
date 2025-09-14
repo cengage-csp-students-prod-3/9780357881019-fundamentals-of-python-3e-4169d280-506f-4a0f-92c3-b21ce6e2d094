@@ -8,6 +8,6 @@ purchasePrice = float(input("Enter the purchase price as $: "))
 taxRate = float(input("Enter the tax rate as %: "))
 tax = purchasePrice * taxRate
 totalOwed = purchasePrice + tax
-print("Purchase price: ", purchasePrice)
-print("Tax: ", tax)
-print("Total owed: ", totalOwed)
+print("Purchase price:", purchasePrice)
+print("Tax:", tax)
+print("Total owed:", totalOwed)
