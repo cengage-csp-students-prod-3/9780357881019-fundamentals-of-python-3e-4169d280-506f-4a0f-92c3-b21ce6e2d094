@@ -10,4 +10,4 @@ tax = purchasePrice * (taxRate / 100)
 totalOwed = purchasePrice + tax
 print("Purchase price:", purchasePrice)
 print("Tax:", tax)
-print("Total owed:", round(totalOwed))
+print("Total owed:", round(totalOwed, 2))
