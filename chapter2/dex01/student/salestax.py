@@ -5,7 +5,7 @@ Outputs: The purchase price, the tax computed, and the total amount to be paid
 """
 
 purchasePrice = float(input("Enter the purchase price as $: "))
-taxRate = int(input("Enter the tax rate as %: "))
+taxRate = float(input("Enter the tax rate as %: "))
 tax = purchasePrice * taxRate
 totalOwed = purchasePrice + tax
 print("Purchase price: ", purchasePrice)
