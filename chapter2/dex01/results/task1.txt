@@ -1,22 +1,12 @@
 
-Status: FAILED!
+Status: PASSED!
 Check: 1
 Test: The program displays the correct tax and total.
-Reason: Unable to find '['tax of 7.0 and a total of 107.0']' in the program's output.
-Enter the purchase price as $: Enter the tax rate as %: Purchase price: 100.0
-Tax: 7.000000000000001
-Total owed: 107
-.
-Error : AssertionError - 
-Timestamp: 2025-09-14 00:38:31.799352
+Reason: The program displayed the correct totals.None
+Timestamp: 2025-09-14 00:39:28.540099
 
-Status: FAILED!
+Status: PASSED!
 Check: 2
 Test: The program displays the correct total.
-Reason: Unable to find '['tax of 26.62 and a total of 268.62']' in the program's output.
-Enter the purchase price as $: Enter the tax rate as %: Purchase price: 242.0
-Tax: 26.62
-Total owed: 269
-.
-Error : AssertionError - 
-Timestamp: 2025-09-14 00:38:31.816555
+Reason: The program displayed the correct totalsNone
+Timestamp: 2025-09-14 00:39:28.558845
