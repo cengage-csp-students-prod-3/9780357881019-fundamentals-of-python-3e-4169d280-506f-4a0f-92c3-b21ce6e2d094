@@ -37,3 +37,4 @@ jobs:
                 -H "Authorization: Bearer ${{ secrets.SCORES_API_AUTH }}" \
                 -d '{"Score": "${{ vars[env.SCORE_VARS_KEY] }}", "State": "${{ vars[env.STATE_VARS_KEY] }}", "SHA": "'${commit_hash}'"}' \
                 ${{ vars.SCOREURL }}
+
