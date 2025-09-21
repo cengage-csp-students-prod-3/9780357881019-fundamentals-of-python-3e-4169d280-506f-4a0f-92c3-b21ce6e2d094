@@ -3,10 +3,10 @@ Status: PASSED!
 Check: 1
 Test: Program outputs '34.875' when user inputs 12, .5, and 5
 Reason: '34.875' was found in the program's output.None
-Timestamp: 2025-09-21 23:20:29.498073
+Timestamp: 2025-09-21 23:20:59.459380
 
 Status: PASSED!
 Check: 2
 Test: Program outputs '166.015625' when user inputs 100, .25, and 4
 Reason: '166.015625' was found in the program's output.None
-Timestamp: 2025-09-21 23:20:29.515769
+Timestamp: 2025-09-21 23:20:59.477020
