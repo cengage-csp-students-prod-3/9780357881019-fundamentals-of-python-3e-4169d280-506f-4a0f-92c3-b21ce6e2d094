@@ -1,0 +1,12 @@
+
+Status: PASSED!
+Check: 1
+Test: Program outputs correct values when user inputs 20, 2, and 10
+Reason: correct values were found in the program's output.None
+Timestamp: 2025-09-22 00:34:04.418409
+
+Status: PASSED!
+Check: 2
+Test: Program outputs correct values when user inputs 44, 5, and 4
+Reason: correct values were found in the program's output.None
+Timestamp: 2025-09-22 00:34:04.436281
