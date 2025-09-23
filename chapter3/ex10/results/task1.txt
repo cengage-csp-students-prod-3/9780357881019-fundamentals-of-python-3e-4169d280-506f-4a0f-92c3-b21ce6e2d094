@@ -3,10 +3,10 @@ Status: PASSED!
 Check: 1
 Test: Program outputs correct values when user inputs 800
 Reason: the correct values were found in the program's output.None
-Timestamp: 2025-09-23 04:41:55.200322
+Timestamp: 2025-09-23 04:42:46.810130
 
 Status: PASSED!
 Check: 2
 Test: Program outputs correct values when user inputs 1299
 Reason: the correct values were found in the program's output.None
-Timestamp: 2025-09-23 04:41:55.220484
+Timestamp: 2025-09-23 04:42:46.830494
