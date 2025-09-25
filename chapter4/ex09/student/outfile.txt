@@ -1,0 +1,13 @@
+   1> # Write your program here
+   2> inputFileName = input("Enter the input file name: ")
+   3> outputFileName = input("Enter the output file name: ")
+   4> 
+   5> inputFile = open(inputFileName, 'r')
+   6> outputFile = open(outputFileName, 'w')
+   7> 
+   8> lineNumber = 0
+   9> for line in inputFile:
+  10>     lineNumber += 1
+  11>     outputFile.write("%4d> %s" % (lineNumber, line))
+  12> 
+  13> outputFile.close()
