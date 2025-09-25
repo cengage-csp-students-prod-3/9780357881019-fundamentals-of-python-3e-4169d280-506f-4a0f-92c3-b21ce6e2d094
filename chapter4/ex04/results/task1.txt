@@ -5,7 +5,7 @@ Test: Program outputs 20 when user inputs 24
 Reason: Unable to find '['20']' in the program's output.
 .
 Error : AssertionError - Unable to find a number close enough to 20 (+/-0.00) in the program's output.
-Timestamp: 2025-09-25 14:35:31.164970
+Timestamp: 2025-09-25 14:38:54.518177
 
 Status: FAILED!
 Check: 2
@@ -13,4 +13,4 @@ Test: Program outputs 192 when user inputs 300
 Reason: Unable to find '['192']' in the program's output.
 .
 Error : AssertionError - Unable to find a number close enough to 192 (+/-0.00) in the program's output.
-Timestamp: 2025-09-25 14:35:31.182112
+Timestamp: 2025-09-25 14:38:54.534527
