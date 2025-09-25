@@ -3,10 +3,10 @@ Status: PASSED!
 Check: 1
 Test: Program outputs correct values when user inputs message and distance of 2
 Reason: 'cdefgh' was found in the program's output.None
-Timestamp: 2025-09-25 01:59:46.556813
+Timestamp: 2025-09-25 02:00:06.914050
 
 Status: PASSED!
 Check: 2
 Test: Program outputs correct values when user inputs message and distance of 127
 Reason: '`abcde' was found in the program's output.None
-Timestamp: 2025-09-25 01:59:46.573955
+Timestamp: 2025-09-25 02:00:06.931475
