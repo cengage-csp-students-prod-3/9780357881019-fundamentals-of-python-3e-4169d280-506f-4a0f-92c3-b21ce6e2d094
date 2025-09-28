@@ -4,11 +4,11 @@ outputFileName = input("Enter the output file name: ")
 distance = int(input("Enter the distance value: "))
 
 inputFile = open(inputFileName, 'r')
-plainText = inputFile.read()
+code = inputFile.read()
 
 outputFile = open(outputFileName, 'w')
 
-code = ''
+plainText = ''
 for ch in plainText:
     ordValue = ord(ch)
     cipherValue = ordValue + distance
