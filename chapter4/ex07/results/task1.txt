@@ -3,10 +3,10 @@ Status: PASSED!
 Check: 1
 Test: Program outputs correct values when user inputs 'hello'
 Reason: 'hello' was found in the program's output.None
-Timestamp: 2025-09-28 23:49:36.245219
+Timestamp: 2025-09-28 23:50:04.158063
 
 Status: PASSED!
 Check: 2
 Test: Program outputs correct values when user inputs 'goodbye'
 Reason: 'goodbye' was found in the program's output.None
-Timestamp: 2025-09-28 23:49:36.262067
+Timestamp: 2025-09-28 23:50:04.175066
