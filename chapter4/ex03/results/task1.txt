@@ -3,10 +3,10 @@ Status: PASSED!
 Check: 1
 Test: Program correctly encrypted file
 Reason: None
-Timestamp: 2025-09-28 22:01:45.480108
+Timestamp: 2025-09-28 22:02:09.765518
 
 Status: PASSED!
 Check: 2
 Test: Program correctly copied file
 Reason: None
-Timestamp: 2025-09-28 22:01:45.496191
+Timestamp: 2025-09-28 22:02:09.783487
