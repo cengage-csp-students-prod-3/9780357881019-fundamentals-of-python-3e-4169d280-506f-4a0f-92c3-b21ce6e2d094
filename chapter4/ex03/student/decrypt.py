@@ -4,18 +4,17 @@ outputFileName = input("Enter the output file name: ")
 distance = int(input("Enter the distance value: "))
 
 inputFile = open(inputFileName, 'r')
-code = inputFile.read()
+plainText = inputFile.read()
 
-outFile = open(outputFileName, 'w')
+outputFile = open(outputFileName, 'w')
 
-plainText = ''
-for ch in code:
+code = ''
+for ch in plainText:
     ordValue = ord(ch)
-    cipherValue = ordValue - distance
-    if cipherValue < 0:
-        cipherValue = 127 - \
-                        (distance - (1 - ordValue))
-    plainText += chr(cipherValue)
+    cipherValue = ordValue + distance
+    if cipherValue > 127:
+        cipherValue = distance - (127 - ordValue + 1)
+    code += chr(cipherValue)
 
-outFile.write(plainText)
-outFile.close()
+outputFile.write(plainText)
+outputFile.close()

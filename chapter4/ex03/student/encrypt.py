@@ -8,7 +8,7 @@ plainText = inputFile.read()
 
 outputFile = open(outputFileName, 'w')
 
-code = ''
+code = ""
 for ch in plainText:
     ordValue = ord(ch)
     cipherValue = ordValue + distance
@@ -16,5 +16,5 @@ for ch in plainText:
         cipherValue = distance - (127 - ordValue + 1)
     code += chr(cipherValue)
 
-outputFile.write(plainText)
+outputFile.write(code)
 outputFile.close()
