@@ -9,12 +9,13 @@ code = inputFile.read()
 outputFile = open(outputFileName, 'w')
 
 plainText = ''
-for ch in plainText:
+for ch in code:
     ordValue = ord(ch)
-    cipherValue = ordValue + distance
-    if cipherValue > 127:
-        cipherValue = distance - (127 - ordValue + 1)
-    code += chr(cipherValue)
+    cipherValue = ordValue - distance
+    if cipherValue < 0:
+        cipherValue = 127 - \
+                        (distance - (1 - ordValue))
+    plainText += chr(cipherValue)
 
 outputFile.write(plainText)
 outputFile.close()
