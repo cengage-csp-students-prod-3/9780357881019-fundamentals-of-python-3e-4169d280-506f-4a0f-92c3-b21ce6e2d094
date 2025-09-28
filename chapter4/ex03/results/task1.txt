@@ -3,11 +3,11 @@ Status: PASSED!
 Check: 1
 Test: Program correctly encrypted file
 Reason: None
-Timestamp: 2025-09-28 21:52:13.230232
+Timestamp: 2025-09-28 21:58:27.916930
 
 Status: FAILED!
 Check: 2
 Test: Program correctly copied file
 Reason: Expected output file to have same content.
 Error : AssertionError - Assertion failed: Expected output file to have same content.
-Timestamp: 2025-09-28 21:52:13.248080
+Timestamp: 2025-09-28 21:58:27.934438
