@@ -3,10 +3,10 @@ Status: PASSED!
 Check: 1
 Test: Program outputs correct values for file1.txt and file2.txt
 Reason: 'Yes' was found in the program's output.None
-Timestamp: 2025-09-30 01:52:33.300098
+Timestamp: 2025-09-30 01:53:17.591705
 
 Status: PASSED!
 Check: 2
 Test: Program outputs correct values when user inputs 'goodbye'
 Reason: 'No' and mismatched lines were found in the program's output.None
-Timestamp: 2025-09-30 01:52:33.318396
+Timestamp: 2025-09-30 01:53:17.608887
