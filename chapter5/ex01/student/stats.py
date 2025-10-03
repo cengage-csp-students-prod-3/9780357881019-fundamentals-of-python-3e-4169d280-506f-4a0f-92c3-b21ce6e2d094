@@ -43,7 +43,7 @@ def mode(numberList):
 
 def main():
     numberList = (3, 1, 7, 1, 4, 10)
-    print("test")
+    print("tesst")
     print("List:", numberList)
     print("Median:", median(numberList))
     print("Mode:", mode(numberList))
