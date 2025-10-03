@@ -1,19 +1,18 @@
 
-Status: FAILED!
+Status: PASSED!
 Check: 1
 Test: The median of [1,50,1000] is 50
-Reason: Expected 50
-Error : AssertionError - Assertion failed: Expected 50
-Timestamp: 2025-10-03 02:09:37.364973
+Reason: None
+Timestamp: 2025-10-03 02:12:18.656206
 
 Status: PASSED!
 Check: 2
 Test: The median of [44,23,77,23] is 33.5
 Reason: None
-Timestamp: 2025-10-03 02:09:37.365079
+Timestamp: 2025-10-03 02:12:18.656310
 
 Status: PASSED!
 Check: 3
 Test: median of an empty list returns 0
 Reason: None
-Timestamp: 2025-10-03 02:09:37.365146
+Timestamp: 2025-10-03 02:12:18.656377
