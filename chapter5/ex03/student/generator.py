@@ -7,13 +7,21 @@ and vocabulary.  Words are chosen at random.
 
 import random
 
-articles = ("A", "THE")
+def getWords(fileName):
 
-nouns = ("BOY", "GIRL", "BAT", "BALL")
+    inputFile = open(fileName, 'r')
+    words = []
+    for line in inputFile:
+        words.extend(line.split())
+    return tuple(words)
 
-verbs = ("HIT", "SAW", "LIKED")
+articles = getWords("articles.txt")
 
-prepositions = ("WITH", "BY")
+nouns = getWords("nouns.txt")
+
+verbs = getWords("verbs.txt")
+
+prepositions = getWords("prepositions.txt")
 
 def sentence():
     """Builds and returns a sentence."""
