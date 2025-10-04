@@ -15,8 +15,19 @@ verbs = ("HIT", "SAW", "LIKED")
 
 prepositions = ("WITH", "BY")
 
+adjectives = ("RED", "LITTLE", "BIG", "WHITE", "BLUE")
+
+conjunctions = ("AND", "BUT")
+
 def sentence():
     """Builds and returns a sentence."""
+    first = independantClause()
+    if random.randint(1, 5) == 1:
+        return first + " " + random.choice(conjunctions) + " " + independantClause()
+    else:
+        return first
+
+def independantClause():
     return nounPhrase() + " " + verbPhrase()
 
 def nounPhrase():
