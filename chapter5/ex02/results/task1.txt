@@ -9,7 +9,7 @@ Enter a line number [0 to quit]: 3 : Lando
 The file has  5 lines.
 Enter a line number [0 to quit]: .
 Error : AssertionError - Unable to find Daniel in the program's output.
-Timestamp: 2025-10-04 02:58:31.767088
+Timestamp: 2025-10-04 03:12:46.512131
 
 Status: FAILED!
 Check: 2
@@ -23,4 +23,4 @@ Enter a line number [0 to quit]: Error: line number must be less than 5
 The file has  5 lines.
 Enter a line number [0 to quit]: .
 Error : AssertionError - Unable to find Max in the program's output.
-Timestamp: 2025-10-04 02:58:31.783665
+Timestamp: 2025-10-04 03:12:46.532904
