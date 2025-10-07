@@ -7,16 +7,23 @@ lines = []
 for line in inputFile:
     lines.append(line)
 
+selected = []
+
 while True:
     print("The file has ", len(lines), "lines.")
     if len(lines) == 0:
         break
+
+    raw = input("Enter line number: [0 to quit]")
+    if not raw.strip().isdigit():
+        break
     
-    lineNumber = int(input("Enter a line number [0 to quit]: "))
+    lineNumber = int(raw)
 
     if lineNumber == 0:
         break
-    elif lineNumber >= len(lines):
+    elif lineNumber < 1 or lineNumber > len(lines):
         print("Error: line number must be less than", len(lines))
     else:
-        print(lineNumber, ":", lines[lineNumber])
+        selected.append(lines[lineNumber - 1])
+        print(selected)
