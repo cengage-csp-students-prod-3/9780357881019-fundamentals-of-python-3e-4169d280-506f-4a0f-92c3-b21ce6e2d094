@@ -1,3 +1,4 @@
+import sys
 import re
 from collections import defaultdict
 
@@ -17,23 +18,27 @@ def build_concordance(words, n=1):
     return concordance
 
 def main():
-    try:
-        filename = input("Enter the input file name: ").strip()
-        n_input = input("Enter the number of words per sequence (default is 1): ").strip()
-        n = int(n_input) if n_input else 1
+    if len(sys.argv) < 2:
+        print("Error: Missing input file name.")
+        return
 
+    filename = sys.argv[1]
+    try:
+        n = int(sys.argv[2]) if len(sys.argv) >= 3 else 1
+    except ValueError:
+        print("Error: Invalid value for n.")
+        return
+
+    try:
         words = get_words(filename)
         concordance = build_concordance(words, n)
 
         for phrase in sorted(concordance):
             print(f"{phrase} {concordance[phrase]}")
-
     except FileNotFoundError:
-        print("Error: File not found.")
-    except ValueError:
-        print("Error: Invalid number entered for sequence length.")
+        print(f"Error: File '{filename}' not found.")
     except Exception as e:
         print(f"An error occurred: {e}")
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
