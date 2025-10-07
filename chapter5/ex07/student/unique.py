@@ -1,23 +1,22 @@
 # Write your program here
 def main():
-    # Prompt for input file name
+    # Prompt user for input file
     filename = input("Enter the input file name: ")
 
     try:
-        # Open and read the file
         with open(filename, 'r') as file:
             text = file.read()
 
-        # Split text into words
+        # Split into words
         words = text.split()
 
-        # Normalize words (remove punctuation and convert to lowercase)
-        cleaned_words = [word.strip('.,!?()[]{}:;"\'').lower() for word in words]
+        # Strip punctuation but keep original casing
+        cleaned_words = [word.strip('.,!?()[]{}:;"\'') for word in words]
 
-        # Get unique words using a set
+        # Get unique words (case-sensitive)
         unique_words = sorted(set(cleaned_words))
 
-        # Print the unique words
+        # Print each word on its own line
         for word in unique_words:
             print(word)
 
