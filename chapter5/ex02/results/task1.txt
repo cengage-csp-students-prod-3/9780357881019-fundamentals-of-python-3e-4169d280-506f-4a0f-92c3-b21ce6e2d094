@@ -1,26 +1,12 @@
 
-Status: FAILED!
+Status: PASSED!
 Check: 1
 Test: Program outputs Daniel when line 3 is requested
-Reason: Unable to find '['Daniel']' in the program's output.
-Enter the input file name: The file has  5 lines.
-Enter a line number [0 to quit]: 3 : Lando
+Reason: correct values were found in the program's output.None
+Timestamp: 2025-10-07 01:57:20.238604
 
-The file has  5 lines.
-Enter a line number [0 to quit]: .
-Error : AssertionError - Unable to find Daniel in the program's output.
-Timestamp: 2025-10-04 03:12:46.512131
-
-Status: FAILED!
+Status: PASSED!
 Check: 2
 Test: Program outputs Max and Sebastian when lines 1 and 5 are requested
-Reason: Unable to find '['Max', 'Sebastian']' in the program's output.
-Enter the input file name: The file has  5 lines.
-Enter a line number [0 to quit]: 1 : Logan
-
-The file has  5 lines.
-Enter a line number [0 to quit]: Error: line number must be less than 5
-The file has  5 lines.
-Enter a line number [0 to quit]: .
-Error : AssertionError - Unable to find Max in the program's output.
-Timestamp: 2025-10-04 03:12:46.532904
+Reason: correct values were found in the program's output.None
+Timestamp: 2025-10-07 01:57:20.256333
