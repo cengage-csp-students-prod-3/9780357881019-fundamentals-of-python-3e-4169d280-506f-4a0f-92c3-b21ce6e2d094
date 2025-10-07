@@ -1,46 +1,46 @@
-# Write your program here
 import re
+import sys
 from collections import defaultdict
 
-def clean_word(word):
-    """Remove punctuation and convert to lowercase."""
-    return re.sub(r'[^\w\s]', '', word).lower()
-
 def get_words_from_file(filename):
-    """Read file and return a list of cleaned words."""
+    """Read file and return list of lowercase words."""
     with open(filename, 'r', encoding='utf-8') as file:
         content = file.read()
-        words = re.findall(r'\b\w+\b', content.lower())  # Find words
+        words = re.findall(r'\b\w+\b', content.lower())
         return words
 
 def build_concordance(words, n=1):
     """Build concordance dictionary for n-word sequences."""
     concordance = defaultdict(int)
-
-    if len(words) < n:
-        return concordance
-
     for i in range(len(words) - n + 1):
         seq = ' '.join(words[i:i+n])
         concordance[seq] += 1
-
     return concordance
 
 def main():
-    filename = input("Enter the input file name: ")
     try:
+        # Try to get arguments from command-line first
+        if len(sys.argv) >= 2:
+            filename = sys.argv[1]
+        else:
+            filename = input("Enter the input file name: ")
+
+        if len(sys.argv) >= 3:
+            n = int(sys.argv[2])
+        else:
+            n_input = input("Enter the number of words per sequence (default is 1): ").strip()
+            n = int(n_input) if n_input else 1
+
         words = get_words_from_file(filename)
-
-        # Ask for n (how many words in a sequence)
-        n_input = input("Enter the number of words per sequence (default is 1): ").strip()
-        n = int(n_input) if n_input else 1
-
         concordance = build_concordance(words, n)
 
         for word_seq in sorted(concordance):
-            print(f"{word_seq} {concordance[word_seq]}")
+            print(word_seq)
+
     except FileNotFoundError:
         print(f"Error: File '{filename}' not found.")
+    except ValueError:
+        print("Error: Please enter a valid number for n.")
     except Exception as e:
         print(f"An error occurred: {e}")
 
