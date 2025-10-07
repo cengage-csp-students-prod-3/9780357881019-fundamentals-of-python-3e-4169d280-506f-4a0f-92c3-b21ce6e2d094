@@ -6,7 +6,7 @@ Reason: Unable to find '['Alex Esteban Lando Lewis Logan Max']' in the program's
 Enter the input file name: Enter the number of words per sequence (default is 1): An error occurred: EOF when reading a line
 .
 Error : AssertionError - 
-Timestamp: 2025-10-07 02:42:28.863470
+Timestamp: 2025-10-07 02:46:11.709368
 
 Status: FAILED!
 Check: 2
@@ -15,4 +15,4 @@ Reason: Unable to find '['brown dog fox jumps lazy over quick the']' in the prog
 Enter the input file name: Enter the number of words per sequence (default is 1): An error occurred: EOF when reading a line
 .
 Error : AssertionError - 
-Timestamp: 2025-10-07 02:42:28.884596
+Timestamp: 2025-10-07 02:46:11.730565
