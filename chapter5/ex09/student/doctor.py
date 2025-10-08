@@ -1,21 +1,35 @@
-"""
-Program: doctor.py
-Author: Ken
-Conducts an interactive session of nondirective psychotherapy.
-"""
-
 import random
 
-hedges = ("Please tell me more.",
-          "Many of my patients tell me the same thing.",
-          "Please coninue.")
+hedges = (
+    "Please tell me more.",
+    "Many of my patients tell me the same thing.",
+    "Please continue."
+)
 
-qualifiers = ("Why do you say that ",
-              "You seem to think that ",
-              "Can you explain why ")
+qualifiers = (
+    "Why do you say that ",
+    "You seem to think that ",
+    "Can you explain why "
+)
 
-replacements = {"I":"you", "me":"you", "my":"your",
-                "we":"you", "us":"you", "mine":"yours"} 
+# ✅ Expanded replacement dictionary (two-way reflection)
+replacements = {
+    "i": "you",
+    "i'd": "you would",
+    "i've": "you have",
+    "i'll": "you will",
+    "my": "your",
+    "me": "you",
+    "mine": "yours",
+    "you": "I",
+    "you'd": "I would",
+    "you've": "I have",
+    "you'll": "I will",
+    "your": "my",
+    "yours": "mine",
+    "am": "are",
+    "are": "am"
+}
 
 def reply(sentence):
     """Implements two different reply strategies."""
@@ -26,13 +40,13 @@ def reply(sentence):
         return random.choice(qualifiers) + changePerson(sentence)
 
 def changePerson(sentence):
-    """Replaces first person pronouns with second person
-    pronouns."""
-    words = sentence.split()
+    """Replaces first and second person pronouns appropriately."""
+    words = sentence.lower().split()
     replyWords = []
     for word in words:
+        # Replace word if found, otherwise keep as is
         replyWords.append(replacements.get(word, word))
-    return " ".join(replyWords) 
+    return " ".join(replyWords)
 
 def main():
     """Handles the interaction between patient and doctor."""
@@ -48,4 +62,3 @@ def main():
 # The entry point for program execution
 if __name__ == "__main__":
     main()
-
