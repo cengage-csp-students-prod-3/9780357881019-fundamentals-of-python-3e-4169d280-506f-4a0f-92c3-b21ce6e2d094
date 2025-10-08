@@ -1,18 +1,12 @@
 
-Status: FAILED!
+Status: PASSED!
 Check: 1
 Test: Program outputs words in correct order.
-Reason: Unable to find '['Alex Esteban Lando Lewis Logan Max']' in the program's output.
-Enter the input file name: Enter the number of words per sequence (default is 1): An error occurred: EOF when reading a line
-.
-Error : AssertionError - 
-Timestamp: 2025-10-07 02:55:53.761256
+Reason: The program's output contained the correct values in the correct order.None
+Timestamp: 2025-10-08 03:00:12.706920
 
-Status: FAILED!
+Status: PASSED!
 Check: 2
 Test: Program outputs words in correct order.
-Reason: Unable to find '['brown dog fox jumps lazy over quick the']' in the program's output.
-Enter the input file name: Enter the number of words per sequence (default is 1): An error occurred: EOF when reading a line
-.
-Error : AssertionError - 
-Timestamp: 2025-10-07 02:55:53.782715
+Reason: The program's output contained the correct values in the correct order.None
+Timestamp: 2025-10-08 03:00:12.724704
