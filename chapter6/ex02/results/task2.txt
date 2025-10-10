@@ -1,0 +1,18 @@
+
+Status: PASSED!
+Check: 1
+Test: The `improveEstimate(25, 5)` method returns the exact square root for a perfect square
+Reason: None
+Timestamp: 2025-10-10 01:25:55.214546
+
+Status: PASSED!
+Check: 2
+Test: The `improveEstimate(2, 1)` method returns and improved estimate for a non-perfect square
+Reason: None
+Timestamp: 2025-10-10 01:25:55.214644
+
+Status: PASSED!
+Check: 3
+Test: The `improveEstimate(10, 2)` method returns a significantly improved estimate for a non-perfect square
+Reason: None
+Timestamp: 2025-10-10 01:25:55.214708
