@@ -19,7 +19,7 @@ def limitReached(x, estimate):
     return difference <= TOLERANCE
 
 def improveEstimate(x, estimate):
-    return (estimate + x / estimate) / 2
+    return (estimate + x / estimate) 
 
 def main():
     while True:
