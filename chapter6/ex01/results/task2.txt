@@ -3,22 +3,22 @@ Status: PASSED!
 Check: 1
 Test: The newton.py program displays both the newton square root and the math square root of 2.
 Reason: None
-Timestamp: 2025-10-10 01:01:11.519844
+Timestamp: 2025-10-10 01:01:33.558462
 
 Status: PASSED!
 Check: 2
 Test: The newton.py program displays both the newton square root and the math square root of 4.
 Reason: None
-Timestamp: 2025-10-10 01:01:11.538827
+Timestamp: 2025-10-10 01:01:33.576450
 
 Status: PASSED!
 Check: 3
 Test: The newton.py program displays both the newton square root and the math square root of 9.
 Reason: None
-Timestamp: 2025-10-10 01:01:11.556875
+Timestamp: 2025-10-10 01:01:33.594149
 
 Status: PASSED!
 Check: 4
 Test: The newton.py program continues until the user pressed enter/return
 Reason: None
-Timestamp: 2025-10-10 01:01:11.575793
+Timestamp: 2025-10-10 01:01:33.612379
