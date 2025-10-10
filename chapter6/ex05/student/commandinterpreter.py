@@ -1,5 +1,3 @@
-# commandinterpreter.py
-
 def printMenu(menu):
     """Displays the menu options with numbers."""
     for i, option in enumerate(menu, start=1):
@@ -44,8 +42,8 @@ def main():
     """Main loop of the command interpreter."""
     menu = ["Open", "Save", "Compile", "Run", "Quit"]
 
-    # Simulated inputs for auto-grading (1, 2, then Quit)
-    simulated_sequence = iter([1, 2, len(menu)])
+    # Simulated sequence of selections: Open, Save, Compile, Run, Quit
+    simulated_sequence = iter([1, 2, 3, 4, len(menu)])
 
     command = ""
     while command != "Quit":
