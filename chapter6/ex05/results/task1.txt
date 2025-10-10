@@ -3,40 +3,16 @@ Status: PASSED!
 Check: 1
 Test: The `commandinterpreter` program displays a menu of commands.
 Reason: None
-Timestamp: 2025-10-10 02:07:21.312459
+Timestamp: 2025-10-10 02:09:07.480098
 
 Status: PASSED!
 Check: 2
 Test: The `commandinterpreter` program displays the selection for 2.
 Reason: None
-Timestamp: 2025-10-10 02:07:21.330836
+Timestamp: 2025-10-10 02:09:07.498857
 
-Status: FAILED!
+Status: PASSED!
 Check: 3
 Test: The `commandinterpreter` program displays the selection for 3 and 4.
-Reason: Unable to find '['Command = Compile and Command = Run']' in the program's output.
-1 Open
-2 Save
-3 Compile
-4 Run
-5 Quit
-Enter a number: 1
-Command = Open
-1 Open
-2 Save
-3 Compile
-4 Run
-5 Quit
-Enter a number: 2
-Command = Save
-1 Open
-2 Save
-3 Compile
-4 Run
-5 Quit
-Enter a number: 5
-Command = Quit
-Have a nice day!
-.
-Error : AssertionError - 
-Timestamp: 2025-10-10 02:07:21.349901
+Reason: None
+Timestamp: 2025-10-10 02:09:07.516981
