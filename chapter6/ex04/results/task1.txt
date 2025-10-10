@@ -1,0 +1,45 @@
+
+Status: PASSED!
+Check: 1
+Test: The `verbPhrase` method returns `True` for a sentence without a prepositional phrase.
+Reason: None
+Timestamp: 2025-10-10 01:54:01.690204
+
+Status: FAILED!
+Check: 2
+Test: The `verbPhrase` method returns `False` for a sentence without a verb.
+Reason: Unable to find '['incorrect']' in the program's output.
+Enter a sentence or press return to quit: Not grammatically correct
+Enter a sentence or press return to quit: .
+Error : AssertionError - 
+Timestamp: 2025-10-10 01:54:01.707931
+
+Status: PASSED!
+Check: 3
+Test: The `nounPhrase` method returns `True` a noun phrase modified by an adjective.
+Reason: None
+Timestamp: 2025-10-10 01:54:01.725787
+
+Status: FAILED!
+Check: 4
+Test: The `nounPhrase` method returns `False` a sentence without a noun.
+Reason: Unable to find '['incorrect']' in the program's output.
+Enter a sentence or press return to quit: Not grammatically correct
+Enter a sentence or press return to quit: .
+Error : AssertionError - 
+Timestamp: 2025-10-10 01:54:01.743503
+
+Status: PASSED!
+Check: 5
+Test: The `sentence` method returns `True` when connecting two independent clauses with a conjunction.
+Reason: None
+Timestamp: 2025-10-10 01:54:01.761139
+
+Status: FAILED!
+Check: 6
+Test: The `sentence` method returns `False` when connecting two independent clauses with a conjunction.
+Reason: Unable to find '['incorrect']' in the program's output.
+Enter a sentence or press return to quit: Not grammatically correct
+Enter a sentence or press return to quit: .
+Error : AssertionError - 
+Timestamp: 2025-10-10 01:54:01.778810
