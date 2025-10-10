@@ -1,90 +1,42 @@
 
-Status: FAILED!
-Reason: Unable to run commandinterpreter.py
-Error: Traceback (most recent call last):
-  File "/home/runner/work/9780357881019-fundamentals-of-python-3e-4169d280-506f-4a0f-92c3-b21ce6e2d094/9780357881019-fundamentals-of-python-3e-4169d280-506f-4a0f-92c3-b21ce6e2d094/python/chapter6/ex05/commandinterpreter.py", line 64, in <module>
-    main()
-  File "/home/runner/work/9780357881019-fundamentals-of-python-3e-4169d280-506f-4a0f-92c3-b21ce6e2d094/9780357881019-fundamentals-of-python-3e-4169d280-506f-4a0f-92c3-b21ce6e2d094/python/chapter6/ex05/commandinterpreter.py", line 57, in main
-    cmd_num = acceptCommand(len(menu))
-              ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/9780357881019-fundamentals-of-python-3e-4169d280-506f-4a0f-92c3-b21ce6e2d094/9780357881019-fundamentals-of-python-3e-4169d280-506f-4a0f-92c3-b21ce6e2d094/python/chapter6/ex05/commandinterpreter.py", line 19, in acceptCommand
-    command = int(input("Enter a number: "))
-                  ^^^^^^^^^^^^^^^^^^^^^^^^^
-EOFError: EOF when reading a line
+Status: PASSED!
+Check: 1
+Test: The `commandinterpreter` program displays a menu of commands.
+Reason: None
+Timestamp: 2025-10-10 02:07:21.312459
 
-Timestamp: 2025-10-10 02:02:32.141606
+Status: PASSED!
+Check: 2
+Test: The `commandinterpreter` program displays the selection for 2.
+Reason: None
+Timestamp: 2025-10-10 02:07:21.330836
 
 Status: FAILED!
-Reason: Unable to run commandinterpreter.py
-Error: Traceback (most recent call last):
-  File "/home/runner/work/9780357881019-fundamentals-of-python-3e-4169d280-506f-4a0f-92c3-b21ce6e2d094/9780357881019-fundamentals-of-python-3e-4169d280-506f-4a0f-92c3-b21ce6e2d094/python/chapter6/ex05/commandinterpreter.py", line 64, in <module>
-    main()
-  File "/home/runner/work/9780357881019-fundamentals-of-python-3e-4169d280-506f-4a0f-92c3-b21ce6e2d094/9780357881019-fundamentals-of-python-3e-4169d280-506f-4a0f-92c3-b21ce6e2d094/python/chapter6/ex05/commandinterpreter.py", line 57, in main
-    cmd_num = acceptCommand(len(menu))
-              ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/9780357881019-fundamentals-of-python-3e-4169d280-506f-4a0f-92c3-b21ce6e2d094/9780357881019-fundamentals-of-python-3e-4169d280-506f-4a0f-92c3-b21ce6e2d094/python/chapter6/ex05/commandinterpreter.py", line 19, in acceptCommand
-    command = int(input("Enter a number: "))
-                  ^^^^^^^^^^^^^^^^^^^^^^^^^
-EOFError: EOF when reading a line
-
-Timestamp: 2025-10-10 02:02:32.141676
-
-Status: FAILED!
-Reason: Unable to run commandinterpreter.py
-Error: Traceback (most recent call last):
-  File "/home/runner/work/9780357881019-fundamentals-of-python-3e-4169d280-506f-4a0f-92c3-b21ce6e2d094/9780357881019-fundamentals-of-python-3e-4169d280-506f-4a0f-92c3-b21ce6e2d094/python/chapter6/ex05/commandinterpreter.py", line 64, in <module>
-    main()
-  File "/home/runner/work/9780357881019-fundamentals-of-python-3e-4169d280-506f-4a0f-92c3-b21ce6e2d094/9780357881019-fundamentals-of-python-3e-4169d280-506f-4a0f-92c3-b21ce6e2d094/python/chapter6/ex05/commandinterpreter.py", line 57, in main
-    cmd_num = acceptCommand(len(menu))
-              ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/9780357881019-fundamentals-of-python-3e-4169d280-506f-4a0f-92c3-b21ce6e2d094/9780357881019-fundamentals-of-python-3e-4169d280-506f-4a0f-92c3-b21ce6e2d094/python/chapter6/ex05/commandinterpreter.py", line 19, in acceptCommand
-    command = int(input("Enter a number: "))
-                  ^^^^^^^^^^^^^^^^^^^^^^^^^
-EOFError: EOF when reading a line
-
-Timestamp: 2025-10-10 02:02:32.242587
-
-Status: FAILED!
-Reason: Unable to run commandinterpreter.py
-Error: Traceback (most recent call last):
-  File "/home/runner/work/9780357881019-fundamentals-of-python-3e-4169d280-506f-4a0f-92c3-b21ce6e2d094/9780357881019-fundamentals-of-python-3e-4169d280-506f-4a0f-92c3-b21ce6e2d094/python/chapter6/ex05/commandinterpreter.py", line 64, in <module>
-    main()
-  File "/home/runner/work/9780357881019-fundamentals-of-python-3e-4169d280-506f-4a0f-92c3-b21ce6e2d094/9780357881019-fundamentals-of-python-3e-4169d280-506f-4a0f-92c3-b21ce6e2d094/python/chapter6/ex05/commandinterpreter.py", line 57, in main
-    cmd_num = acceptCommand(len(menu))
-              ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/9780357881019-fundamentals-of-python-3e-4169d280-506f-4a0f-92c3-b21ce6e2d094/9780357881019-fundamentals-of-python-3e-4169d280-506f-4a0f-92c3-b21ce6e2d094/python/chapter6/ex05/commandinterpreter.py", line 19, in acceptCommand
-    command = int(input("Enter a number: "))
-                  ^^^^^^^^^^^^^^^^^^^^^^^^^
-EOFError: EOF when reading a line
-
-Timestamp: 2025-10-10 02:02:32.242665
-
-Status: FAILED!
-Reason: Unable to run commandinterpreter.py
-Error: Traceback (most recent call last):
-  File "/home/runner/work/9780357881019-fundamentals-of-python-3e-4169d280-506f-4a0f-92c3-b21ce6e2d094/9780357881019-fundamentals-of-python-3e-4169d280-506f-4a0f-92c3-b21ce6e2d094/python/chapter6/ex05/commandinterpreter.py", line 64, in <module>
-    main()
-  File "/home/runner/work/9780357881019-fundamentals-of-python-3e-4169d280-506f-4a0f-92c3-b21ce6e2d094/9780357881019-fundamentals-of-python-3e-4169d280-506f-4a0f-92c3-b21ce6e2d094/python/chapter6/ex05/commandinterpreter.py", line 57, in main
-    cmd_num = acceptCommand(len(menu))
-              ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/9780357881019-fundamentals-of-python-3e-4169d280-506f-4a0f-92c3-b21ce6e2d094/9780357881019-fundamentals-of-python-3e-4169d280-506f-4a0f-92c3-b21ce6e2d094/python/chapter6/ex05/commandinterpreter.py", line 19, in acceptCommand
-    command = int(input("Enter a number: "))
-                  ^^^^^^^^^^^^^^^^^^^^^^^^^
-EOFError: EOF when reading a line
-
-Timestamp: 2025-10-10 02:02:32.342366
-
-Status: FAILED!
-Reason: Unable to run commandinterpreter.py
-Error: Traceback (most recent call last):
-  File "/home/runner/work/9780357881019-fundamentals-of-python-3e-4169d280-506f-4a0f-92c3-b21ce6e2d094/9780357881019-fundamentals-of-python-3e-4169d280-506f-4a0f-92c3-b21ce6e2d094/python/chapter6/ex05/commandinterpreter.py", line 64, in <module>
-    main()
-  File "/home/runner/work/9780357881019-fundamentals-of-python-3e-4169d280-506f-4a0f-92c3-b21ce6e2d094/9780357881019-fundamentals-of-python-3e-4169d280-506f-4a0f-92c3-b21ce6e2d094/python/chapter6/ex05/commandinterpreter.py", line 57, in main
-    cmd_num = acceptCommand(len(menu))
-              ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/9780357881019-fundamentals-of-python-3e-4169d280-506f-4a0f-92c3-b21ce6e2d094/9780357881019-fundamentals-of-python-3e-4169d280-506f-4a0f-92c3-b21ce6e2d094/python/chapter6/ex05/commandinterpreter.py", line 19, in acceptCommand
-    command = int(input("Enter a number: "))
-                  ^^^^^^^^^^^^^^^^^^^^^^^^^
-EOFError: EOF when reading a line
-
-Timestamp: 2025-10-10 02:02:32.342436
+Check: 3
+Test: The `commandinterpreter` program displays the selection for 3 and 4.
+Reason: Unable to find '['Command = Compile and Command = Run']' in the program's output.
+1 Open
+2 Save
+3 Compile
+4 Run
+5 Quit
+Enter a number: 1
+Command = Open
+1 Open
+2 Save
+3 Compile
+4 Run
+5 Quit
+Enter a number: 2
+Command = Save
+1 Open
+2 Save
+3 Compile
+4 Run
+5 Quit
+Enter a number: 5
+Command = Quit
+Have a nice day!
+.
+Error : AssertionError - 
+Timestamp: 2025-10-10 02:07:21.349901
