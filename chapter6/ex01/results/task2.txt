@@ -1,0 +1,32 @@
+
+Status: FAILED!
+Check: 1
+Test: The newton.py program displays both the newton square root and the math square root of 2.
+Reason: Unable to find '[1.4142135623746899, 1.4142135623730951]' in the program's output.
+.
+Error : AssertionError - Unable to find a number close enough to 1.4142135623746899 (+/-0.00) in the program's output.
+Timestamp: 2025-10-10 00:56:05.768650
+
+Status: FAILED!
+Check: 2
+Test: The newton.py program displays both the newton square root and the math square root of 4.
+Reason: Unable to find '['2.0', '2.0000000000000004']' in the program's output.
+.
+Error : AssertionError - Unable to find a number close enough to 2.0 (+/-0.00) in the program's output.
+Timestamp: 2025-10-10 00:56:05.786996
+
+Status: FAILED!
+Check: 3
+Test: The newton.py program displays both the newton square root and the math square root of 9.
+Reason: Unable to find '['3.0', '3.000000000000001']' in the program's output.
+.
+Error : AssertionError - Unable to find a number close enough to 3.0 (+/-0.00) in the program's output.
+Timestamp: 2025-10-10 00:56:05.805136
+
+Status: FAILED!
+Check: 4
+Test: The newton.py program continues until the user pressed enter/return
+Reason: Unable to find '['3.162277665175675', '3.4641016533502986', '3.7416573867739458']' in the program's output.
+.
+Error : AssertionError - Unable to find a number close enough to 3.162277665175675 (+/-0.00) in the program's output.
+Timestamp: 2025-10-10 00:56:05.822961
