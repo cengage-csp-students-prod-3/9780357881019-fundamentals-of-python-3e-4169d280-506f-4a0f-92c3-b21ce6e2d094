@@ -74,9 +74,9 @@ def main():
         words = sentence_input.split()
         ok, _ = sentence(words)
         if ok:
-            print("Ok, grammatically correct")
+            print("[correct]")
         else:
-            print("Not grammatically correct")
+            print("[incorrect]")
 
 
 if __name__ == "__main__":
