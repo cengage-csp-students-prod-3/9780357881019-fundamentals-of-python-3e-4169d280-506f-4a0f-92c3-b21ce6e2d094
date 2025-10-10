@@ -21,3 +21,8 @@ def main():
             break
 
         x = float(x)
+        print("The program's estimate is ", newton(x))
+        print("Python's estimate is      ", math.sqrt(x))
+
+if __name__ == "__main__":
+    main()
