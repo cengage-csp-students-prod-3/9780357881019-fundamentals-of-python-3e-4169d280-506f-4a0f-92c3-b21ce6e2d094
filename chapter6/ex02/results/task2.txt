@@ -1,18 +1,21 @@
 
-Status: PASSED!
+Status: FAILED!
 Check: 1
 Test: The `improveEstimate(25, 5)` method returns the exact square root for a perfect square
-Reason: None
-Timestamp: 2025-10-10 01:26:19.102894
+Reason: Expected 4.166666666666666
+Error : AssertionError - Assertion failed: Expected 4.166666666666666
+Timestamp: 2025-10-10 01:27:52.120528
 
-Status: PASSED!
+Status: FAILED!
 Check: 2
 Test: The `improveEstimate(2, 1)` method returns and improved estimate for a non-perfect square
-Reason: None
-Timestamp: 2025-10-10 01:26:19.103014
+Reason: Expected 1.5
+Error : AssertionError - Assertion failed: Expected 1.5
+Timestamp: 2025-10-10 01:27:52.120656
 
-Status: PASSED!
+Status: FAILED!
 Check: 3
 Test: The `improveEstimate(10, 2)` method returns a significantly improved estimate for a non-perfect square
-Reason: None
-Timestamp: 2025-10-10 01:26:19.103100
+Reason: Expected 3.5
+Error : AssertionError - Assertion failed: Expected 3.5
+Timestamp: 2025-10-10 01:27:52.120728
