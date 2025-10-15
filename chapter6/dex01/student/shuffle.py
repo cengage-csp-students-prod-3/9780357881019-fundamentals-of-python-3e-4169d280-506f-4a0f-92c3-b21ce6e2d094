@@ -1,4 +1,6 @@
 import random
 def shuffleString(theString):
-    print("".join(random.shuffle(list(theString))))
+    chars = list(theString)          
+    random.shuffle(chars)            
+    print("".join(chars))            
 shuffleString("Apples are red")
