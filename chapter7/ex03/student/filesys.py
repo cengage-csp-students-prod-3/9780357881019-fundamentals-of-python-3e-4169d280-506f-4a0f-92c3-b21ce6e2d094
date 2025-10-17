@@ -61,6 +61,24 @@ def runCommand(command):
         else:
             for f in fileList:
                 print(f)
+    elif command == '7':
+        viewFile(os.getcwd())
+
+def viewFile(dirName):
+    file_list = list(filter(os.path.isfile, os.listdir(dirName)))
+    if len(file_list) == 0:
+        print("There are no files in this directory")
+    else:
+        while True:
+            print("Files in " + dirName + ":")
+            for element in file_list: print(element)
+            fileName = input("Enter a file name from these names: ")
+            if not fileName in file_list:
+                print("Sorry, there is an error in your filename.")
+            else:
+                f = open(fileName, 'r')
+                print(f.read())
+                break
 
 def listCurrentDir(dirName):
     """Prints a list of the cwd's contents."""
