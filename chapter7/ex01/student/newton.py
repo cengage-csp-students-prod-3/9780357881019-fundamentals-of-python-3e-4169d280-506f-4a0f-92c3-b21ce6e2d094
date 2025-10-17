@@ -5,7 +5,7 @@ TOLERANCE = 0.000001
 
 def newton(x, estimate = 1):
     difference = abs(x - estimate ** 2)
-    if differece <= TOLERANCE:
+    if difference <= TOLERANCE:
         return estimate
     else:
         return newton(x, (estimate + x/estimate) / 2)
