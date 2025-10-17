@@ -1,21 +1,18 @@
 
-Status: FAILED!
+Status: PASSED!
 Check: 1
-Test: Method displayFiles must exist
-Reason: Method displayFiles not found!
-Error : AssertionError - 
-Timestamp: 2025-10-17 01:37:52.029997
+Test: The `displayFiles` method prints the contents of a file.
+Reason: None
+Timestamp: 2025-10-17 01:39:22.796968
 
-Status: FAILED!
+Status: PASSED!
 Check: 2
-Test: Method displayFiles must exist
-Reason: Method displayFiles not found!
-Error : AssertionError - 
-Timestamp: 2025-10-17 01:37:52.030109
+Test: The `displayFiles` method prints the contents of a file.
+Reason: None
+Timestamp: 2025-10-17 01:39:22.797250
 
-Status: FAILED!
+Status: PASSED!
 Check: 3
-Test: Method displayFiles must exist
-Reason: Method displayFiles not found!
-Error : AssertionError - 
-Timestamp: 2025-10-17 01:37:52.030201
+Test: The filesys.py program does not contain any hardcoded strings.
+Reason: None
+Timestamp: 2025-10-17 01:39:22.797482
