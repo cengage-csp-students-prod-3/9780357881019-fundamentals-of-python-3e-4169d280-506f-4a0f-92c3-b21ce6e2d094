@@ -59,6 +59,30 @@ RAISED = Tkinter.RAISED
 SINGLE = Tkinter.SINGLE
 ACTIVE = Tkinter.ACTIVE
 
+from breezypythongui import EasyFrame
+
+class Chessboard(EasyFrame):
+
+    def __init__(self):
+        """Sets up the window and the panels."""
+        EasyFrame.__init__(self, title="Chess", width=200, height=200)
+
+        for row in range(8):
+            # Start each row with white on even rows, black on odd rows
+            color = "white" if row % 2 == 0 else "black"
+            for column in range(8):
+                # Add the panel using current color, then toggle for next column
+                self.addPanel(row=row, column=column, background=color)
+                color = "black" if color == "white" else "white"
+
+def main():
+    """Instantiate and pop up the window."""
+    Chessboard().mainloop()
+
+if __name__ == "__main__":
+    main()
+
+
 class EasyFrame(Tkinter.Frame):
     """Represents an application window."""
 
