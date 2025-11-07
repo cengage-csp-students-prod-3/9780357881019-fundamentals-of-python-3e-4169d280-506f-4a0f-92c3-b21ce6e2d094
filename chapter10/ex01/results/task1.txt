@@ -1,0 +1,7 @@
+
+Status: FAILED!
+Check: 2
+Test: Class Student must exist
+Reason: Student.__init__() takes 2 positional arguments but 3 were given
+Error : AssertionError - 
+Timestamp: 2025-11-07 02:42:11.582518
