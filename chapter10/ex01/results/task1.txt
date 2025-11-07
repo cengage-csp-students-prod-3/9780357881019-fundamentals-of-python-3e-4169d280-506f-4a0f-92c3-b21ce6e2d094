@@ -1,7 +1,12 @@
 
-Status: FAILED!
+Status: PASSED!
+Check: 1
+Test: The `__eq__` method returns `True` when two equal student objects are compared.
+Reason: None
+Timestamp: 2025-11-07 02:46:33.476347
+
+Status: PASSED!
 Check: 2
-Test: Class Student must exist
-Reason: Student.__init__() takes 2 positional arguments but 3 were given
-Error : AssertionError - 
-Timestamp: 2025-11-07 02:42:11.582518
+Test: The `__eq__` method returns `False` when two unequal student objects are compared.
+Reason: None
+Timestamp: 2025-11-07 02:46:33.476483
