@@ -9,10 +9,15 @@ from die import Die
 class Player(object):
 
     def __init__(self):
-        """Has a pair of dice and an empty rolls list."""
+        """Initializes the player for a new game."""
         self.die1 = Die()
         self.die2 = Die()
-        self.rolls = []
+        self.roll = ""            # String form of most recent roll
+        self.rollsCount = 0       # Number of rolls made
+        self.atStartup = True     # True before first roll
+        self.winner = False       # True if player wins
+        self.loser = False        # True if player loses
+        self.point = 0            # Point to be made after first roll
 
     def __str__(self):
         """Returns a string representation of the list of rolls."""
@@ -21,10 +26,41 @@ class Player(object):
             result = result + str((v1, v2)) + " " +\
                      str(v1 + v2) + "\n"
         return result
+    
+    def rollDice(self):
+        """Rolls the dice once, updates the game state, and returns a tuple of values."""
+        if self.winner or self.loser:
+            # Game already finished
+            return None
+
+        self.die1.roll()
+        self.die2.roll()
+        v1 = self.die1.getValue()
+        v2 = self.die2.getValue()
+        total = v1 + v2
+        self.roll = f"({v1}, {v2}) total = {total}"
+        self.rollsCount += 1
+
+        # ----- Game logic -----
+        if self.atStartup:
+            if total in (7, 11):
+                self.winner = True
+            elif total in (2, 3, 12):
+                self.loser = True
+            else:
+                self.point = total
+                self.atStartup = False
+        else:
+            if total == self.point:
+                self.winner = True
+            elif total == 7:
+                self.loser = True
+
+        return (v1, v2)
 
     def getNumberOfRolls(self):
-        """Returns the number of the rolls."""
-        return len(self.rolls)
+        """Returns the number of rolls made so far."""
+        return self.rollsCount
 
     def play(self):
         """Plays a game, saves the rolls for that game, 
