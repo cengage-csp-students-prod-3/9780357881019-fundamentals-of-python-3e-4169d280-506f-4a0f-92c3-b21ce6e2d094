@@ -26,12 +26,18 @@ class Student(object):
         return self.scores[i - 1]
    
     def getAverageScore(self):
-        """Returns the average score."""
-        return sum(self.scores) / len(self.scores)
+        """Returns the average score or 0 if there are no scores."""
+        if len(self.scores) == 0:
+            return 0
+        else:
+            return sum(self.scores) / len(self.scores)
     
     def getHighScore(self):
-        """Returns the highest score."""
-        return max(self.scores)
+        """Returns the highest score or 0 if there are no scores."""
+        if len(self.scores) == 0:
+            return 0
+        else:
+            return max(self.scores)
  
     def __str__(self):
         """Returns the string representation of the student."""
@@ -41,7 +47,7 @@ class Student(object):
 def main():
     s = Student("Jack", 0)
     print(s)
-    s.getAverageScore()
+    print("Average Score:", s.getAverageScore())
 
 if __name__ == "__main__":
     main()
