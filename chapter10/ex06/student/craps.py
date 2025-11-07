@@ -52,6 +52,15 @@ class Player(object):
         """Returns the total number of rolls made so far."""
         # ensure we always return an integer
         return int(self.rollsCount)
+    
+    def isWinner(self):
+        """Returns True if the player has won."""
+        return self.winner
+
+    def isLoser(self):
+        """Returns True if the player has lost."""
+        return self.loser
+
 
 
     def play(self):
