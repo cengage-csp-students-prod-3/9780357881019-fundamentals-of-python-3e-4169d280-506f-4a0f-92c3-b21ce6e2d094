@@ -19,13 +19,6 @@ class Player(object):
         self.loser = False        # True if player loses
         self.point = 0            # Point to be made after first roll
 
-    def __str__(self):
-        """Returns a string representation of the list of rolls."""
-        result = ""
-        for (v1, v2) in self.rolls:
-            result = result + str((v1, v2)) + " " +\
-                     str(v1 + v2) + "\n"
-        return result
     
     def rollDice(self):
         """Rolls the dice once, updates the game state, and returns a tuple of values."""
