@@ -12,27 +12,26 @@ class Player(object):
         """Initializes the player for a new game."""
         self.die1 = Die()
         self.die2 = Die()
-        self.roll = ""            # most recent roll string
-        self.rollsCount = 0       # total rolls
+        self.roll = ""
+        self.rollsCount = 0
         self.atStartup = True
         self.winner = False
         self.loser = False
         self.point = 0
 
     def rollDice(self):
-        """Rolls the dice once and updates game state."""
-        if self.winner or self.loser:
-            return None
-
+        """Rolls the dice once, updates game state, and returns a tuple of values."""
+        # always roll dice when this method is called
         self.die1.roll()
         self.die2.roll()
         v1, v2 = self.die1.getValue(), self.die2.getValue()
         total = v1 + v2
-        self.roll = f"({v1}, {v2}) total = {total}"
 
-        # increment the counter!
+        # update roll info and count
+        self.roll = f"({v1}, {v2}) total = {total}"
         self.rollsCount += 1
 
+        # game logic
         if self.atStartup:
             if total in (7, 11):
                 self.winner = True
@@ -50,8 +49,10 @@ class Player(object):
         return (v1, v2)
 
     def getNumberOfRolls(self):
-        """Returns the number of rolls made so far."""
-        return self.rollsCount
+        """Returns the total number of rolls made so far."""
+        # ensure we always return an integer
+        return int(self.rollsCount)
+
 
     def play(self):
         """Plays a game, saves the rolls for that game, 
