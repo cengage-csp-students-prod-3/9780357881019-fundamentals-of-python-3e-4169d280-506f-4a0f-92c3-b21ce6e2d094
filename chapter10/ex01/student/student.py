@@ -7,6 +7,10 @@ class Student:
     def __eq__(self, other):
         # Compare based on the student's name
         return self.name == other.name
+    
+    # Less than: <
+    def __lt__(self, other):
+        return self.name < other.name
 
 
 def main():
@@ -16,6 +20,9 @@ def main():
 
     print(s1 == s2)   # Expected: False
     print(s1 == s3)   # Expected: True
+
+    print(s1 < s2)    # True ("Alice" < "Bob")
+    print(s2 < s1)    # False ("Bob" < "Alice")
 
 
 if __name__ == "__main__":
