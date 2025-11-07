@@ -4,11 +4,11 @@ Check: 1
 Test: The `getNumberOfRolls` method should return the number of rolls the player has made.
 Reason: The `getNumberOfRolls` method does not return the number of rolls the player has made.
 Error : AssertionError - Assertion failed: The `getNumberOfRolls` method does not return the number of rolls the player has made.
-Timestamp: 2025-11-07 03:27:34.733950
+Timestamp: 2025-11-07 03:30:16.936809
 
 Status: FAILED!
 Check: 2
 Test: The `getNumberOfRolls` method should return the number of rolls the player has made.
 Reason: The `getNumberOfRolls` method does not return the number of rolls the player has made.
 Error : AssertionError - Assertion failed: The `getNumberOfRolls` method does not return the number of rolls the player has made.
-Timestamp: 2025-11-07 03:27:34.734087
+Timestamp: 2025-11-07 03:30:16.936928
