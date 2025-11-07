@@ -1,44 +1,21 @@
-# Write your code here
 class Student:
-    def __init__(self, name):
+    def __init__(self, name, student_id):
         self.name = name
+        self.student_id = student_id
 
-    # Equality: ==
+    # Equality test method
     def __eq__(self, other):
+        # Compare based on the student's name
         return self.name == other.name
-
-    # Less than: <
-    def __lt__(self, other):
-        return self.name < other.name
-
-    # Greater than or equal to: >=
-    def __ge__(self, other):
-        return self.name >= other.name
 
 
 def main():
-    # Create Student objects
-    s1 = Student("Alice")
-    s2 = Student("Bob")
-    s3 = Student("Alice")
+    s1 = Student("Alice", 1001)
+    s2 = Student("Bob", 1002)
+    s3 = Student("Alice", 1003)
 
-    # Test equality
-    print(f"{s1 == s2}: {s1 == s2}")   # False: False
-    print(f"{s1 == s3}: {s1 == s3}")   # True: True
-
-    # Test less than
-    print(f"{s1 < s2}: {s1 < s2}")     # True: True
-    print(f"{s2 < s1}: {s2 < s1}")     # False: False
-
-    # Test greater than or equal
-    print(f"{s1 >= s2}: {s1 >= s2}")   # True: True or False depending on names
-    print(f"{s2 >= s1}: {s2 >= s1}")   # True: True
-    print(f"{s1 >= s3}: {s1 >= s3}")   # True: True
-
-    # Additional tests (to reach 10 lines total)
-    print(f"{s2 >= s3}: {s2 >= s3}")   # True: True
-    print(f"{s2 == s2}: {s2 == s2}")   # True: True
-    print(f"{s3 < s2}: {s3 < s2}")     # True: True
+    print(s1 == s2)   # Expected: False
+    print(s1 == s3)   # Expected: True
 
 
 if __name__ == "__main__":
