@@ -3,10 +3,10 @@ Status: PASSED!
 Check: 1
 Test: The `__eq__` method returns `True` when two equal student objects are compared.
 Reason: None
-Timestamp: 2025-11-07 02:46:33.476347
+Timestamp: 2025-11-07 02:50:08.892320
 
 Status: PASSED!
 Check: 2
 Test: The `__eq__` method returns `False` when two unequal student objects are compared.
 Reason: None
-Timestamp: 2025-11-07 02:46:33.476483
+Timestamp: 2025-11-07 02:50:08.892421
