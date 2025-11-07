@@ -11,6 +11,11 @@ class Student:
     # Less than: <
     def __lt__(self, other):
         return self.name < other.name
+    
+    # Greater than or equal to: >=
+    def __ge__(self, other):
+        return self.name >= other.name
+    
 
 
 def main():
@@ -23,6 +28,11 @@ def main():
 
     print(s1 < s2)    # True ("Alice" < "Bob")
     print(s2 < s1)    # False ("Bob" < "Alice")
+
+    # Greater than or equal tests
+    print(f"{s1 >= s2}: {s1 >= s2}")  # False: False
+    print(f"{s2 >= s1}: {s2 >= s1}")  # True: True
+    print(f"{s1 >= s3}: {s1 >= s3}")  # True: True
 
 
 if __name__ == "__main__":
