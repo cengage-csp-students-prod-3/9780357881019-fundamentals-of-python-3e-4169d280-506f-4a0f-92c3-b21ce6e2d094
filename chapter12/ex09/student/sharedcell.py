@@ -1,21 +1,27 @@
-"""
-File: sharedcell.py
-Programming Exercise 12.9
+# File: sharedcell.py
 
-Abstract resource for shared data synchonization for readers and writers
-problems. Includes the read and write methods and the shared data.
-Subclasses will add conditions, counts, and flags, as well as
-beginRead, endRead, beginWrite, and endWrite.
-"""
+class SharedCell:
+    """Base class storing shared data and providing generic read/write methods."""
 
-from threading import Condition
+    def __init__(self):
+        # Initialize data with a placeholder
+        self._data = None
 
-class SharedCell(object):
-    """Synchronizes readers and writers around shared data,
-    with specific protocols determined by subclasses."""
-    
-    def __init__(self, data):
-        """Sets up the data."""
-        self.data = data
-        
+    def write(self, data):
+        """Public write method — subclasses control synchronization."""
+        self.beginWrite()
+        self._data = data
+        self.endWrite()
 
+    def read(self):
+        """Public read method — subclasses control synchronization."""
+        self.beginRead()
+        result = self._data
+        self.endRead()
+        return result
+
+    # These methods will be overridden by subclasses
+    def beginRead(self): pass
+    def endRead(self): pass
+    def beginWrite(self): pass
+    def endWrite(self): pass
