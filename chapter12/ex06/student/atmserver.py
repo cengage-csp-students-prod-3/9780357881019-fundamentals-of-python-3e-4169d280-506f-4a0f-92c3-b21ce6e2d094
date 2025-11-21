@@ -1,26 +1,25 @@
 """
-File: atmserver.py
-Project 10.6
-Server for providing ATM access.
-Uses client handlers to handle clients' requests.
+ATM Application Server
 """
 
-from socket import *
+from socket import socket, AF_INET, SOCK_STREAM
+from atm import Bank, ATM
 from atmclienthandler import ATMClientHandler
-from bank import createBank
 
 HOST = "localhost"
 PORT = 5000
-BUFSIZE = 1024
-ADDRESS = (HOST, PORT)
-CODE = "ascii"
 
 server = socket(AF_INET, SOCK_STREAM)
-server.bind()
-server.listen()
-bank = createBank(5)
-# Show the account credentials for testing
+server.bind((HOST, PORT))
+server.listen(5)
 
-"""The server now just waits for connections from clients and hands sockets off to client handlers"""
-# Add your code here
-# TODO: While the connection is active, start the ATMClientHandler thread
+print("ATM server started. Waiting for clients...")
+
+bank = Bank()
+atm = ATM(bank)
+
+while True:
+    client, addr = server.accept()
+    print("Client connected:", addr)
+    handler = ATMClientHandler(client, atm)
+    handler.start()

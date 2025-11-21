@@ -1,88 +1,50 @@
 """
-File: atmclient.py
-Project 10.6
-This module defines the ATMClient class, which provides a window
-for bank customers to perform deposits, withdrawals, and check
-balances remotely via a client.
+ATM Client program
 """
 
-from socket import *
-from codecs import decode
-from breezypythongui import EasyFrame
+from socket import socket, AF_INET, SOCK_STREAM
 
 HOST = "localhost"
 PORT = 5000
-ADDRESS = (HOST, PORT)
-BUFSIZE = 1024
-CODE = "ascii"
 
-class ATMClient(EasyFrame):
-    """Represents an ATM window for a client. The window connects to the server at startup and waits for customers to login, then sends requests to the server. Does not disconnect from server at logout, but waits for new login request from user.
-    """
+class ATMClient:
 
     def __init__(self):
-        """Initialize the frame and connect to the server."""
-        EasyFrame.__init__(self, title = "ATM")
-        """Create and add the widgets to the window."""
-        # TODO: Create the user interface using the UI elements below.
-        # self.nameLabel()
-        # self.pinLabel()
-        # self.amountLabel()
-        # self.statusLabel()
-        # self.nameField()
-        # self.pinField()
-        # self.amountField()
-        # self.statusField()
-        # self.balanceButton
-        # self.depositButton()
+        self.client = socket(AF_INET, SOCK_STREAM)
+        self.client.connect((HOST, PORT))
+        print(self.client.recv(1024).decode())
 
-        """Connect to server and confirm connection"""
-        # Add your code here            
+    def send(self, message):
+        self.client.send(message.encode())
+        return self.client.recv(1024).decode()
 
-    def login(self):
-        """Attempts to login the customer.  If successful,
-        enables the buttons, including logout."""
-        # Add your code here
-        # TODO: Retrieve the user's login information
-        # TODO: Send the user's login credentials to the server with the LOGIN code
-        # TODO: Receive the server's response and handle appropriately
-        # Reply will be the empty string if login succeeds
-        
-    def logout(self):
-        """Logs the customer out, clears the fields, disables the buttons, and enables login."""
-        # Add your code here
-        # TODO: Send the server the LOGOUT code
-        # TODO: Reset the interface so the user is denied access until they login again
+    def close(self):
+        self.client.send(b"QUIT")
+        self.client.close()
 
 
-    def getBalance(self):
-        """Displays the current balance in the status field."""
-        # Add your code here
-        # TODO: Send the server the BALANCE code
-        # TODO: Handle the server's response appropriately and update the statusField with the balance 
+def main():
+    atm = ATMClient()
 
-    def deposit(self):
-        """Attempts a deposit. If not successful, displays
-        error message in statusfield; otherwise, announces
-        success."""
-        # Add your code here
-        # TODO: Retrieve the amount the user wants to deposit into their account
-        # TODO: Send the deposit amount to the server using the DEPOSIT code
-        # TODO: Handle the server's response appropriately and update the statusField 
+    acct = input("Enter account number: ")
+    pin = input("Enter PIN: ")
+    print(atm.send(f"LOGIN {acct} {pin}"))
 
-        
-    def withdraw(self):
-        """Attempts a withdrawal. If not successful, displays error message in statusfield; otherwise, announces success."""
-        # Add your code here
-        # TODO: Retrieve the amount the user wants to withdraw. 
-        # TODO: Send the withdrawal amount to the server with the WITHDRAW code
-        # TODO: Handle the server's response appropriately and update the statusField 
-        
-def main(fileName = None):
-    """Creates the bank with the optional file name,
-    wraps the window around it, and opens the window.
-    Saves the bank when the window closes."""
-    ATMClient().mainloop()
+    while True:
+        print("\n1) Deposit\n2) Withdraw\n3) Balance\n4) Quit")
+        choice = input("> ")
+
+        if choice == "1":
+            amt = input("Amount: ")
+            print(atm.send(f"DEPOSIT {amt}"))
+        elif choice == "2":
+            amt = input("Amount: ")
+            print(atm.send(f"WITHDRAW {amt}"))
+        elif choice == "3":
+            print(atm.send("BALANCE"))
+        elif choice == "4":
+            atm.close()
+            break
 
 if __name__ == "__main__":
     main()
