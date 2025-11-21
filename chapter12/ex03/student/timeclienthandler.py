@@ -7,18 +7,19 @@ Client handler for providing the day and time.
 
 from time import ctime
 from threading import Thread
-from codecs import decode
 
 class TimeClientHandler(Thread):
     """Handles a client request."""
+    
     def __init__(self, client):
-        Thread.__init__(self)
+        super().__init__()
         self.client = client
    
     def run(self):
-        self.client.send(bytes(ctime() + \
-                               "\nHave a nice day!",
-                               "ascii"))
-        self.client.close()
-
-
+        try:
+            message = ctime() + "\nHave a nice day!"
+            self.client.send(message.encode("ascii"))
+        except Exception as e:
+            print("Error sending message to client:", e)
+        finally:
+            self.client.close()
