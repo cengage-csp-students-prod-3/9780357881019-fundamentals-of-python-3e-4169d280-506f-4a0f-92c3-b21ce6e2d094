@@ -1,8 +1,8 @@
 """
 File: readersandwriters.py
-Demonstrates shared data synchonization for the readers and writers
+Demonstrates shared data synchronization for the readers and writers
 problem.
-To be completed in the programing projects.
+To be completed in the programming projects.
 """
 
 import time, random
@@ -22,8 +22,10 @@ class Writer(Thread):
         the counter in the cell."""
         print("%s starting up" % self.name)
         time.sleep(random.randint(1, 4))
-        # write, using counter's increment
-        # value = ?
+
+        # write, using counter's increment via SharedCell
+        value = self.cell.write(self.cell.data.increment)
+
         print("%s is done incrementing to %d" % \
               (self.name, value))
 
@@ -39,8 +41,10 @@ class Reader(Thread):
         the value of the counter in the cell."""
         print("%s starting up" % self.name)
         time.sleep(random.randint(1, 4))
-        # read, using counter's getValue
-        # value = ?
+
+        # read, using counter's getValue via SharedCell
+        value = self.cell.read(self.cell.data.getValue)
+
         print("%s is done getting %d" % (self.name, value))
 
 def main():
@@ -49,15 +53,22 @@ def main():
     counter = Counter()
     cell = SharedCell(counter)
     threads = []
+    
     print("Creating reader threads.")
     for i in range(1, 5):
         threads.append(Reader(cell, i))
+    
     print("Creating writer threads.")
     for i in range(1, 3):
         threads.append(Writer(cell, i))
+    
     print("Starting the threads.")
     for thread in threads:
         thread.start()
     
+    # Ensure all threads finish before ending the program
+    for thread in threads:
+        thread.join()
+
 if __name__ == "__main__":
     main()
