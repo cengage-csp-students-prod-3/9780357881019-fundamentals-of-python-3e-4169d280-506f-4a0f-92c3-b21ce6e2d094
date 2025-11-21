@@ -1,25 +1,27 @@
 """
-File: timeclienthandler.py
+File: timeserver.py
 Programming Exercise 12.2
 
-Client handler for providing the day and time.
+Server for providing the day and time.  Uses client
+handlers to handle clients' requests.
 """
 
-from time import ctime
-from threading import Thread
+from socket import *
+from timeclienthandler import TimeClientHandler
 
-class TimeClientHandler(Thread):
-    """Handles a client request."""
-    
-    def __init__(self, client):
-        super().__init__()
-        self.client = client
-   
-    def run(self):
-        try:
-            message = ctime() + "\nHave a nice day!"
-            self.client.send(message.encode("ascii"))
-        except Exception as e:
-            print("Error sending message to client:", e)
-        finally:
-            self.client.close()
+HOST = "localhost"
+PORT = 6000
+ADDRESS = (HOST, PORT)
+
+server = socket(AF_INET, SOCK_STREAM)
+server.bind(ADDRESS)
+server.listen(5)
+
+# The server now just waits for connections from clients
+# and hands sockets off to client handlers
+while True:
+    print("Waiting for connection . . .")
+    client, address = server.accept()
+    print("... connected from: ", address)
+    handler = TimeClientHandler(client)
+    handler.start()
