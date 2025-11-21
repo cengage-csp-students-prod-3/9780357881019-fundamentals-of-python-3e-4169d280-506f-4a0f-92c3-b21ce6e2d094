@@ -1,41 +1,72 @@
 """
-File: threadsafesavingsaccount.py
-This module defines a thread-safe SavingsAccount class.
+Thread-safe version of the SavingsAccount class.
 """
 
-from savingsaccount import SavingsAccount
-from sharedcell import SharedCell
+from threading import Condition
 
+class ThreadSafeSavingsAccount(object):
 
-class ThreadSafeSavingsAccount:
-    """This class represents a thread-safe savings account
-    with the owner's name, PIN, and balance."""
+    def __init__(self, name, pin, balance=0.0):
+        self.name = name
+        self.pin = pin
+        self.balance = balance
 
-    def __init__(self, name, pin, balance = 0.0):
-        """Wrap a new account in a shared cell for thread-safety."""
-        account = SavingsAccount(name, pin, balance)
-        self.cell = SharedCell(account)
+        # Reader-writer lock variables
+        self.condition = Condition()
+        self.readers = 0
+        self.writer_active = False
 
-    def __str__(self):
-        """Returns the string rep of the account."""
-        return self.cell.read(lambda account: str(account))
+    # ------------ Reader Entry / Exit ------------
 
-    def getBalance(self):
-        """Returns the current balance."""
-        return self.cell.read(lambda account: account.getBalance())
+    def _start_read(self):
+        with self.condition:
+            while self.writer_active:
+                self.condition.wait()
+            self.readers += 1
 
-    def getName(self):
-        """Returns the current name."""
-         return self.cell.read(lambda account: account.getName())
+    def _end_read(self):
+        with self.condition:
+            self.readers -= 1
+            if self.readers == 0:
+                self.condition.notify_all()
 
-    def getPin(self):
-        """Returns the current pin."""
-         return self.cell.read(lambda account: account.getPin())
+    # ------------ Writer Entry / Exit ------------
+
+    def _start_write(self):
+        with self.condition:
+            while self.writer_active or self.readers > 0:
+                self.condition.wait()
+            self.writer_active = True
+
+    def _end_write(self):
+        with self.condition:
+            self.writer_active = False
+            self.condition.notify_all()
+
+    # ------------ Public Account Methods ------------
+
+    def get_balance(self):
+        """Safe read."""
+        self._start_read()
+        result = self.balance
+        self._end_read()
+        return result
 
     def deposit(self, amount):
-        """If the amount is valid, adds it
-        to the balance and returns None;
-        otherwise, returns an error message."""
-        return self.cell.write(lambda account: account.deposit(amount))
+        """Safe write."""
+        self._start_write()
+        self.balance += amount
+        self._end_write()
 
-    # Other methods are exercises
+    def withdraw(self, amount):
+        """Safe write."""
+        self._start_write()
+        if amount > self.balance:
+            self._end_write()
+            return False
+        self.balance -= amount
+        self._end_write()
+        return True
+
+    def validate_pin(self, pin):
+        return self.pin == pin
