@@ -1,6 +1,6 @@
 {
   "name": "MindTap",
-  "image": "mcr.microsoft.com/devcontainers/universal:3-noble",
+  "image": "mcr.microsoft.com/devcontainers/universal:4-noble",
   "features": {
     "ghcr.io/devcontainers/features/desktop-lite:1": {}
   },
@@ -22,19 +22,12 @@
         "python.analysis.typeCheckingMode": "standard",
         "editor.formatOnSave": false,
         "editor.defaultFormatter": "ms-python.black-formatter",
-        "pylint.enabled": false, 
-        "pylint.args": [
-        	"--disable=C0103",
-    		  "--disable=C0116",
-    		  "--disable=C0304"
-  	    ]
+        "pylint.enabled": false,
+        "pylint.args": ["--disable=C0103", "--disable=C0116", "--disable=C0304"]
       }
     }
   },
-  "forwardPorts": [
-    3005,
-    6080
-  ],
+  "forwardPorts": [3005, 6080],
   "portsAttributes": {
     "3005": {
       "label": "cengage-companion",

@@ -1,0 +1,39 @@
+name: Publish Instructions via SFTP (lftp)
+
+on:
+  pull_request:
+    types:
+      - closed
+    branches:
+      - template
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    if: github.event.pull_request.merged == true
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install lftp
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y lftp
+
+      - name: Upload via SFTP using lftp mirror
+        run: |
+          lftp -u "${{ secrets.SFTP_USERNAME }},${{ secrets.SFTP_PASSWORD }}" sftp://${{ secrets.SFTP_HOST }} << EOF
+            set sftp:auto-confirm yes
+            set ssl:verify-certificate no
+
+            mkdir -p "${{ secrets.SFTP_TARGET_DIR }}"
+            cd "${{ secrets.SFTP_TARGET_DIR }}"
+
+            mirror --reverse --verbose --delete \
+              --exclude '(^|/)\.[^/]+(/|$)' \
+              "$GITHUB_WORKSPACE" \
+              .
+          EOF
