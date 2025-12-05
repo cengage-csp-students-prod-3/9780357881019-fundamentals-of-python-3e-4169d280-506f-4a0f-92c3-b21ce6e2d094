@@ -31,3 +31,19 @@ def binarySearch(target, lyst, profiler = None):
             left = midpoint + 1
     return -1
 
+def sequentialSearchSorted(target, lyst, profiler = None):
+    """Returns the position of the target item if found,
+    or -1 otherwise. Assumes lyst is sorted in ascending order.
+    Halts early when lyst[position] > target."""
+    position = 0
+    while position < len(lyst):
+        if profiler: profiler.comparison()
+        if target == lyst[position]:
+            return position
+        # Early stop condition for sorted list
+        if lyst[position] > target:
+            return -1
+        position += 1
+    return -1
+
+
