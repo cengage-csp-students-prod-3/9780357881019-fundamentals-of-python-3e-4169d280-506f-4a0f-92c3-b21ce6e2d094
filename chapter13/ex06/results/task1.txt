@@ -1,28 +1,25 @@
 
 Status: FAILED!
 Check: 1
-Test: 
-Reason: 
-Error : ImportError - cannot import name 'fib' from 'fib' (/home/runner/work/9780357881019-fundamentals-of-python-3e-4169d280-506f-4a0f-92c3-b21ce6e2d094/9780357881019-fundamentals-of-python-3e-4169d280-506f-4a0f-92c3-b21ce6e2d094/python/chapter13/ex06/fib.py)
-Timestamp: 2025-12-06 00:59:10.523287
+Test: The `fib(0)` function should return the correct result.
+Reason: The `fib(0)` function should return the correct result.
+Error : AssertionError - Assertion failed: The `fib(0)` function should return the correct result.
+Timestamp: 2025-12-06 01:00:54.781907
 
-Status: FAILED!
+Status: PASSED!
 Check: 2
-Test: 
-Reason: 
-Error : ImportError - cannot import name 'fib' from 'fib' (/home/runner/work/9780357881019-fundamentals-of-python-3e-4169d280-506f-4a0f-92c3-b21ce6e2d094/9780357881019-fundamentals-of-python-3e-4169d280-506f-4a0f-92c3-b21ce6e2d094/python/chapter13/ex06/fib.py)
-Timestamp: 2025-12-06 00:59:10.523512
+Test: The `fib(1)` function should return the correct result.
+Reason: None
+Timestamp: 2025-12-06 01:00:54.782033
 
-Status: FAILED!
+Status: PASSED!
 Check: 3
-Test: 
-Reason: 
-Error : ImportError - cannot import name 'fib' from 'fib' (/home/runner/work/9780357881019-fundamentals-of-python-3e-4169d280-506f-4a0f-92c3-b21ce6e2d094/9780357881019-fundamentals-of-python-3e-4169d280-506f-4a0f-92c3-b21ce6e2d094/python/chapter13/ex06/fib.py)
-Timestamp: 2025-12-06 00:59:10.523693
+Test: The `fib(10)` function should return the correct result.
+Reason: None
+Timestamp: 2025-12-06 01:00:54.782132
 
-Status: FAILED!
+Status: PASSED!
 Check: 4
-Test: 
-Reason: 
-Error : ImportError - cannot import name 'fib' from 'fib' (/home/runner/work/9780357881019-fundamentals-of-python-3e-4169d280-506f-4a0f-92c3-b21ce6e2d094/9780357881019-fundamentals-of-python-3e-4169d280-506f-4a0f-92c3-b21ce6e2d094/python/chapter13/ex06/fib.py)
-Timestamp: 2025-12-06 00:59:10.523841
+Test: The `fib(20)` function should return the correct result.
+Reason: None
+Timestamp: 2025-12-06 01:00:54.782201
