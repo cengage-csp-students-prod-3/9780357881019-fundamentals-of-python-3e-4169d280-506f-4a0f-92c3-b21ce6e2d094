@@ -1,25 +1,26 @@
 
-Status: FAILED!
+Status: PASSED!
 Check: 1
 Test: The `fib(0)` function should return the correct result.
-Reason: The `fib(0)` function should return the correct result.
-Error : AssertionError - Assertion failed: The `fib(0)` function should return the correct result.
-Timestamp: 2025-12-06 01:02:17.604962
+Reason: None
+Timestamp: 2025-12-06 01:03:18.453834
 
 Status: PASSED!
 Check: 2
 Test: The `fib(1)` function should return the correct result.
 Reason: None
-Timestamp: 2025-12-06 01:02:17.605102
+Timestamp: 2025-12-06 01:03:18.453950
 
-Status: PASSED!
+Status: FAILED!
 Check: 3
 Test: The `fib(10)` function should return the correct result.
-Reason: None
-Timestamp: 2025-12-06 01:02:17.605193
+Reason: The `fib(10)` function should return the correct result.
+Error : AssertionError - Assertion failed: The `fib(10)` function should return the correct result.
+Timestamp: 2025-12-06 01:03:18.454026
 
-Status: PASSED!
+Status: FAILED!
 Check: 4
 Test: The `fib(20)` function should return the correct result.
-Reason: None
-Timestamp: 2025-12-06 01:02:17.605273
+Reason: The `fib(20)` function should return the correct result.
+Error : AssertionError - Assertion failed: The `fib(20)` function should return the correct result.
+Timestamp: 2025-12-06 01:03:18.454101
