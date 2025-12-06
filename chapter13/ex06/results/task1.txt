@@ -4,22 +4,22 @@ Check: 1
 Test: The `fib(0)` function should return the correct result.
 Reason: The `fib(0)` function should return the correct result.
 Error : AssertionError - Assertion failed: The `fib(0)` function should return the correct result.
-Timestamp: 2025-12-06 01:00:54.781907
+Timestamp: 2025-12-06 01:02:17.604962
 
 Status: PASSED!
 Check: 2
 Test: The `fib(1)` function should return the correct result.
 Reason: None
-Timestamp: 2025-12-06 01:00:54.782033
+Timestamp: 2025-12-06 01:02:17.605102
 
 Status: PASSED!
 Check: 3
 Test: The `fib(10)` function should return the correct result.
 Reason: None
-Timestamp: 2025-12-06 01:00:54.782132
+Timestamp: 2025-12-06 01:02:17.605193
 
 Status: PASSED!
 Check: 4
 Test: The `fib(20)` function should return the correct result.
 Reason: None
-Timestamp: 2025-12-06 01:00:54.782201
+Timestamp: 2025-12-06 01:02:17.605273
