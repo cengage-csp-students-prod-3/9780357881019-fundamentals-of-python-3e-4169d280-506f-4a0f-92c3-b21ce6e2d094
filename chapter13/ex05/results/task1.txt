@@ -3,22 +3,22 @@ Status: PASSED!
 Check: 1
 Test: The `selectionSort` method sorts an list [5, 3, 1, 2, 4] of integers in ascending order.
 Reason: None
-Timestamp: 2025-12-06 00:50:23.435608
+Timestamp: 2025-12-06 00:50:55.083052
 
 Status: PASSED!
 Check: 2
 Test: The `selectionSort` method sorts an list [5, 3, 1, 2, 4] of integers in descending order.
 Reason: None
-Timestamp: 2025-12-06 00:50:23.435724
+Timestamp: 2025-12-06 00:50:55.083157
 
 Status: PASSED!
 Check: 3
 Test: The `selectionSort` method sorts an list [5, 12, 3, 8, 19, 7, 2, 14] of integers in ascending order.
 Reason: None
-Timestamp: 2025-12-06 00:50:23.435800
+Timestamp: 2025-12-06 00:50:55.083241
 
 Status: PASSED!
 Check: 4
 Test: The `selectionSort` method sorts an list [5, 12, 3, 8, 19, 7, 2, 14] of integers in descending order.
 Reason: None
-Timestamp: 2025-12-06 00:50:23.435897
+Timestamp: 2025-12-06 00:50:55.083305
