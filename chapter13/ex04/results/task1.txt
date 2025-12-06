@@ -1,0 +1,30 @@
+
+Status: PASSED!
+Check: 1
+Test: The `expo(2,3)` function should implement recursion.
+Reason: None
+Timestamp: 2025-12-06 00:24:03.213318
+
+Status: PASSED!
+Check: 2
+Test: The `expo(5,0)` function should return the correct result.
+Reason: None
+Timestamp: 2025-12-06 00:24:03.213420
+
+Status: PASSED!
+Check: 3
+Test: The `expo(0,5)` function should return the correct result.
+Reason: None
+Timestamp: 2025-12-06 00:24:03.213487
+
+Status: PASSED!
+Check: 4
+Test: The `expo(0,0)` function should return the correct result.
+Reason: None
+Timestamp: 2025-12-06 00:24:03.213542
+
+Status: PASSED!
+Check: 5
+Test: The `pow` method and `**` operator should not be implemented.
+Reason: None
+Timestamp: 2025-12-06 00:24:03.213741
