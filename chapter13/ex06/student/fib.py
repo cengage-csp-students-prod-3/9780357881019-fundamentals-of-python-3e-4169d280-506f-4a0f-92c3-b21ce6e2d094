@@ -1,4 +1,10 @@
+"""
+File: fib.py
+Defines a memoized recursive Fibonacci function with a Counter.
+"""
+
 class Counter:
+    """Counts recursive calls."""
     def __init__(self):
         self.count = 0
 
@@ -7,17 +13,17 @@ class Counter:
 
 
 def fib(n):
+    """Returns the nth Fibonacci number using memoization."""
+
     memo = {}
     counter = Counter()
 
     def helper(k):
         counter.increment()
 
-        # Base cases (textbook version)
-        if k == 0 or k == 1:
-            return 1
+        if k <= 1:
+            return k
 
-        # Check memo
         value = memo.get(k)
         if value is not None:
             return value
@@ -26,4 +32,5 @@ def fib(n):
         memo[k] = value
         return value
 
-    return helper(n)
+    result = helper(n)
+    return result   # <-- No printing!
