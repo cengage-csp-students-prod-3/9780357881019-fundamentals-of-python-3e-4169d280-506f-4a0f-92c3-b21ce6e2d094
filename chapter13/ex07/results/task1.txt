@@ -3,24 +3,24 @@ Status: PASSED!
 Check: 1
 Test: The `fib(0)` function should have been called 1 times
 Reason: None
-Timestamp: 2025-12-06 01:10:59.546507
+Timestamp: 2025-12-06 01:11:26.756244
 
 Status: PASSED!
 Check: 2
 Test: The `fib(1)` function should have been called 1 times
 Reason: None
-Timestamp: 2025-12-06 01:10:59.546671
+Timestamp: 2025-12-06 01:11:26.756356
 
 Status: FAILED!
 Check: 3
 Test: The `fib(10)` function should have been called 17 times
 Reason: Unable to verify the `fib` method was called 17 times.
 Error : AssertionError - Assertion failed: Unable to verify the `fib` method was called 17 times.
-Timestamp: 2025-12-06 01:10:59.546792
+Timestamp: 2025-12-06 01:11:26.756432
 
 Status: FAILED!
 Check: 4
 Test: The `fib(20)` function should have been called 37 times
 Reason: Unable to verify the `fib` method was called 37 times.
 Error : AssertionError - Assertion failed: Unable to verify the `fib` method was called 37 times.
-Timestamp: 2025-12-06 01:10:59.546924
+Timestamp: 2025-12-06 01:11:26.756507
