@@ -1,6 +1,9 @@
 {
   "name": "MindTap",
-  "image": "mcr.microsoft.com/devcontainers/universal:latest",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "."
+  },
   "features": {
     "ghcr.io/devcontainers/features/desktop-lite:1": {
       "webBrowser": false,
